@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fundação Apoio Comunitário | A Apoiar os Nossos Idosos</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        primary: {
+                            light: '#67e8f9',
+                            DEFAULT: '#06b6d4',
+                            dark: '#0e7490',
+                        },
+                        secondary: '#f0f9ff',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        /* Transição simples para efeitos de hover */
+        .btn {
+            @apply px-6 py-3 rounded-lg font-semibold text-white transition-all duration-300 ease-in-out;
+        }
+        .btn-primary {
+            @apply bg-primary hover:bg-primary-dark;
+        }
+        .nav-link {
+            @apply text-gray-600 hover:text-primary transition-colors duration-300;
+        }
+    </style>
+</head>
+<body class="bg-white text-gray-800 font-sans">
+
+    <!-- Cabeçalho e Navegação -->
+    <header class="bg-white shadow-sm sticky top-0 z-50">
+        <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="#" class="text-2xl font-bold text-primary-dark flex items-center">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 mr-2" viewBox="0 0 20 20" fill="currentColor">
+                  <path fill-rule="evenodd" d="M3.172 5.172a4 4 0 015.656 0L10 6.343l1.172-1.171a4 4 0 115.656 5.656L10 17.657l-6.828-6.829a4 4 0 010-5.656z" clip-rule="evenodd" />
+                </svg>
+                Apoio Comunitário
+            </a>
+            <div class="hidden md:flex items-center space-x-8">
+                <a href="#about" class="nav-link">Sobre Nós</a>
+                <a href="#services" class="nav-link">Serviços</a>
+                <a href="#news" class="nav-link">Notícias</a>
+                <a href="#contact" class="nav-link">Contacto</a>
+                <a href="#" class="btn btn-primary">Doar</a>
+            </div>
+            <!-- Botão do Menu Móvel -->
+            <button id="mobile-menu-button" class="md:hidden">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
+                </svg>
+            </button>
+        </nav>
+        <!-- Menu Móvel -->
+        <div id="mobile-menu" class="hidden md:hidden px-6 pb-4">
+            <a href="#about" class="block py-2 nav-link">Sobre Nós</a>
+            <a href="#services" class="block py-2 nav-link">Serviços</a>
+            <a href="#news" class="block py-2 nav-link">Notícias</a>
+            <a href="#contact" class="block py-2 nav-link">Contacto</a>
+            <a href="#" class="block mt-4 text-center btn btn-primary w-full">Doar</a>
+        </div>
+    </header>
+
+    <main>
+        <!-- Secção Principal (Hero) -->
+        <section class="relative h-[60vh] min-h-[400px] bg-cover bg-center" style="background-image: url('https://placehold.co/1600x900/06b6d4/ffffff?text=Mãos+que+Cuidam');">
+            <div class="absolute inset-0 bg-black bg-opacity-40"></div>
+            <div class="relative container mx-auto px-6 h-full flex flex-col justify-center items-center text-center text-white">
+                <h1 class="text-4xl md:text-6xl font-bold leading-tight mb-4">Proporcionando Cuidado e Conforto</h1>
+                <p class="text-lg md:text-xl max-w-3xl mb-8">Dedicados a melhorar a qualidade de vida dos idosos da nossa comunidade através de um apoio compassivo e serviços dedicados.</p>
+                <a href="#about" class="btn btn-primary text-lg">Saber Mais</a>
+            </div>
+        </section>
+
+        <!-- Secção Sobre Nós -->
+        <section id="about" class="py-20 bg-secondary">
+            <div class="container mx-auto px-6 grid md:grid-cols-2 gap-12 items-center">
+                <div class="rounded-lg overflow-hidden shadow-xl">
+                    <img src="https://placehold.co/600x400/a5f3fc/0e7490?text=A+Nossa+Comunidade" alt="Grupo de idosos felizes" class="w-full h-full object-cover">
+                </div>
+                <div>
+                    <h2 class="text-3xl font-bold text-primary-dark mb-4">A Nossa Missão</h2>
+                    <p class="text-gray-600 mb-4">
+                        Há mais de 20 anos que a Fundação Apoio Comunitário é um pilar de apoio para os idosos locais. Acreditamos na promoção de uma comunidade onde cada idoso se sinta valorizado, seguro e conectado.
+                    </p>
+                    <p class="text-gray-600">
+                        A nossa equipa dedicada de profissionais e voluntários trabalha incansavelmente para fornecer serviços que promovem a independência, a dignidade e o bem-estar.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Secção de Serviços -->
+        <section id="services" class="py-20">
+            <div class="container mx-auto px-6 text-center">
+                <h2 class="text-3xl font-bold text-primary-dark mb-2">Os Nossos Serviços</h2>
+                <p class="text-gray-600 max-w-2xl mx-auto mb-12">Oferecemos uma gama de serviços concebidos para satisfazer as diversas necessidades dos nossos idosos.</p>
+                <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+                    <!-- Cartão de Serviço 1 -->
+                    <div class="bg-white p-8 rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300">
+                        <div class="bg-primary-light text-primary-dark rounded-full p-4 w-20 h-20 mx-auto mb-4 flex items-center justify-center">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10" viewBox="0 0 20 20" fill="currentColor"><path d="M10.707 2.293a1 1 0 00-1.414 0l-7 7a1 1 0 001.414 1.414L4 10.414V17a1 1 0 001 1h2a1 1 0 001-1v-2a1 1 0 011-1h2a1 1 0 011 1v2a1 1 0 001 1h2a1 1 0 001-1v-6.586l.293.293a1 1 0 001.414-1.414l-7-7z" /></svg>
+                        </div>
+                        <h3 class="text-xl font-semibold mb-2">Centro de Dia</h3>
+                        <p class="text-gray-600">Atividades envolventes e interação social num ambiente de grupo seguro e de apoio.</p>
+                    </div>
+                    <!-- Cartão de Serviço 2 -->
+                    <div class="bg-white p-8 rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300">
+                        <div class="bg-primary-light text-primary-dark rounded-full p-4 w-20 h-20 mx-auto mb-4 flex items-center justify-center">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10" viewBox="0 0 20 20" fill="currentColor"><path d="M5.5 16a3.5 3.5 0 01-.369-6.98 4 4 0 117.738-1.96l.27-1.348a5.5 5.5 0 00-10.274 2.228 3.5 3.5 0 01-3.23-3.233A5.5 5.5 0 0011 4.5a5.5 5.5 0 00-4.962 8.214A3.502 3.502 0 015.5 16z" /></svg>
+                        </div>
+                        <h3 class="text-xl font-semibold mb-2">Apoio Domiciliário</h3>
+                        <p class="text-gray-600">Cuidados personalizados e assistência nas tarefas diárias no conforto do seu próprio lar.</p>
+                    </div>
+                    <!-- Cartão de Serviço 3 -->
+                    <div class="bg-white p-8 rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300">
+                        <div class="bg-primary-light text-primary-dark rounded-full p-4 w-20 h-20 mx-auto mb-4 flex items-center justify-center">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M4 4a2 2 0 012-2h8a2 2 0 012 2v12a1 1 0 11-2 0V4H6v12a1 1 0 11-2 0V4zm10.293 9.293a1 1 0 011.414 1.414l-3 3a1 1 0 01-1.414 0l-3-3a1 1 0 111.414-1.414L11 14.586V7a1 1 0 112 0v7.586l1.293-1.293z" clip-rule="evenodd" /></svg>
+                        </div>
+                        <h3 class="text-xl font-semibold mb-2">Lar Residencial</h3>
+                        <p class="text-gray-600">Cuidados profissionais 24/7 e uma comunidade vibrante na nossa estrutura residencial.</p>
+                    </div>
+                    <!-- Cartão de Serviço 4 -->
+                    <div class="bg-white p-8 rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300">
+                        <div class="bg-primary-light text-primary-dark rounded-full p-4 w-20 h-20 mx-auto mb-4 flex items-center justify-center">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10" viewBox="0 0 20 20" fill="currentColor"><path d="M2 6a2 2 0 012-2h12a2 2 0 012 2v2a2 2 0 01-2 2H4a2 2 0 01-2-2V6zM2 12a2 2 0 012-2h12a2 2 0 012 2v2a2 2 0 01-2 2H4a2 2 0 01-2-2v-2z" /></svg>
+                        </div>
+                        <h3 class="text-xl font-semibold mb-2">Cantina Social</h3>
+                        <p class="text-gray-600">Refeições nutritivas e acessíveis servidas diariamente num ambiente amigável e comunitário.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Secção de Notícias -->
+        <section id="news" class="py-20 bg-secondary">
+            <div class="container mx-auto px-6">
+                <h2 class="text-3xl font-bold text-primary-dark mb-12 text-center">Últimas Notícias</h2>
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- Cartão de Notícia 1 -->
+                    <div class="bg-white rounded-lg shadow-md overflow-hidden group">
+                        <img src="https://placehold.co/400x250/818cf8/ffffff?text=Evento" alt="Evento de notícias" class="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300">
+                        <div class="p-6">
+                            <p class="text-sm text-gray-500 mb-2">1 de Agosto, 2025</p>
+                            <h3 class="text-xl font-semibold mb-2">Piquenique Anual de Verão foi um Sucesso!</h3>
+                            <p class="text-gray-600 mb-4">Um dia maravilhoso de diversão, comida e amizade no nosso encontro anual da comunidade...</p>
+                            <a href="#" class="font-semibold text-primary hover:text-primary-dark">Ler Mais &rarr;</a>
+                        </div>
+                    </div>
+                    <!-- Cartão de Notícia 2 -->
+                    <div class="bg-white rounded-lg shadow-md overflow-hidden group">
+                        <img src="https://placehold.co/400x250/f472b6/ffffff?text=Voluntariado" alt="Evento de notícias" class="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300">
+                        <div class="p-6">
+                            <p class="text-sm text-gray-500 mb-2">25 de Julho, 2025</p>
+                            <h3 class="text-xl font-semibold mb-2">Voluntário em Destaque: Conheça a Sara</h3>
+                            <p class="text-gray-600 mb-4">Saiba mais sobre uma das nossas voluntárias mais dedicadas e o impacto que ela está a ter...</p>
+                            <a href="#" class="font-semibold text-primary hover:text-primary-dark">Ler Mais &rarr;</a>
+                        </div>
+                    </div>
+                    <!-- Cartão de Notícia 3 -->
+                    <div class="bg-white rounded-lg shadow-md overflow-hidden group">
+                        <img src="https://placehold.co/400x250/fbbf24/ffffff?text=Saúde" alt="Evento de notícias" class="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300">
+                        <div class="p-6">
+                            <p class="text-sm text-gray-500 mb-2">18 de Julho, 2025</p>
+                            <h3 class="text-xl font-semibold mb-2">Novo Workshop de Saúde e Bem-Estar</h3>
+                            <p class="text-gray-600 mb-4">Temos o prazer de anunciar uma nova série de workshops focados na saúde dos idosos...</p>
+                            <a href="#" class="font-semibold text-primary hover:text-primary-dark">Ler Mais &rarr;</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Rodapé -->
+    <footer id="contact" class="bg-gray-800 text-white">
+        <div class="container mx-auto px-6 py-12">
+            <div class="grid md:grid-cols-3 gap-8">
+                <div>
+                    <h3 class="text-xl font-bold mb-4">Apoio Comunitário</h3>
+                    <p class="text-gray-400">Melhorar a vida dos idosos na nossa comunidade com compaixão e dedicação.</p>
+                </div>
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Links Rápidos</h3>
+                    <ul>
+                        <li class="mb-2"><a href="#about" class="hover:text-primary">Sobre Nós</a></li>
+                        <li class="mb-2"><a href="#services" class="hover:text-primary">Serviços</a></li>
+                        <li class="mb-2"><a href="#news" class="hover:text-primary">Notícias</a></li>
+                        <li class="mb-2"><a href="#" class="hover:text-primary">Doar</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Contacte-nos</h3>
+                    <p class="text-gray-400 mb-2">Rua da Solidariedade 123, Qualquer Cidade, 1234-567</p>
+                    <p class="text-gray-400 mb-2">Email: <a href="mailto:contacto@apoiocomunitario.pt" class="hover:text-primary">contacto@apoiocomunitario.pt</a></p>
+                    <p class="text-gray-400">Telefone: (+351) 210 123 456</p>
+                </div>
+            </div>
+            <div class="mt-8 pt-8 border-t border-gray-700 text-center text-gray-500">
+                <p>&copy; 2025 Fundação Apoio Comunitário. Todos os Direitos Reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Alternar visibilidade do menu móvel
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+    </script>
+</body>
+</html>
