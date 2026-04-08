@@ -1,0 +1,283 @@
+{{/* Chatbot widget — widget flutuante de assistência ao visitante.
+     Requisitos: 9.1 (widget discreto canto inferior direito),
+                 9.6 (minimizado sem interferir navegação),
+                 9.7 (acessível por teclado, compatível com leitores de ecrã) */}}
+
+<!-- Chatbot Toggle Button -->
+<button
+  id="chatbot-toggle"
+  type="button"
+  aria-label="Abrir assistente virtual"
+  aria-expanded="false"
+  aria-controls="chatbot-panel"
+  class="fixed bottom-6 right-6 z-50 w-14 h-14 rounded-full bg-primary text-white shadow-lg hover:bg-opacity-90 focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-2 transition-all duration-200 flex items-center justify-center"
+>
+  <!-- Chat icon (open state) -->
+  <svg id="chatbot-icon-open" class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+      d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
+  </svg>
+  <!-- Close icon (closed state) -->
+  <svg id="chatbot-icon-close" class="w-7 h-7 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+  </svg>
+</button>
+
+<!-- Chatbot Panel -->
+<div
+  id="chatbot-panel"
+  role="dialog"
+  aria-label="Assistente virtual ARPILF"
+  aria-modal="false"
+  class="fixed bottom-24 right-6 z-50 w-80 max-w-[calc(100vw-2rem)] bg-white rounded-lg shadow-2xl border border-gray-200 flex-col hidden"
+  style="max-height: 28rem;"
+>
+  <!-- Header -->
+  <div class="flex items-center justify-between bg-primary text-white px-4 py-3 rounded-t-lg">
+    <h2 class="text-base font-semibold" id="chatbot-title">Assistente ARPILF</h2>
+    <button
+      id="chatbot-close"
+      type="button"
+      aria-label="Fechar assistente virtual"
+      class="p-1 rounded hover:bg-white hover:bg-opacity-20 focus:outline-none focus:ring-2 focus:ring-accent transition-colors"
+    >
+      <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+      </svg>
+    </button>
+  </div>
+
+  <!-- Message Area -->
+  <div
+    id="chatbot-messages"
+    role="log"
+    aria-live="polite"
+    aria-label="Mensagens do assistente virtual"
+    class="flex-1 overflow-y-auto px-4 py-3 space-y-3"
+    style="min-height: 12rem; max-height: 18rem;"
+  >
+    <!-- Messages are inserted here by JS -->
+  </div>
+
+  <!-- Input Area -->
+  <div class="border-t border-gray-200 px-4 py-3">
+    <form id="chatbot-form" class="flex gap-2" aria-label="Enviar mensagem ao assistente">
+      <label for="chatbot-input" class="sr-only">Escreva a sua pergunta</label>
+      <input
+        id="chatbot-input"
+        type="text"
+        placeholder="Escreva a sua pergunta..."
+        autocomplete="off"
+        class="flex-1 border border-gray-300 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-primary focus:border-primary"
+        aria-label="Escreva a sua pergunta"
+      />
+      <button
+        id="chatbot-send"
+        type="submit"
+        aria-label="Enviar pergunta"
+        class="bg-primary text-white rounded-lg px-3 py-2 hover:bg-opacity-90 focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-1 transition-colors"
+      >
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+            d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8" />
+        </svg>
+      </button>
+    </form>
+  </div>
+</div>
+
+<!-- Load chatbot dependencies -->
+<script src="{{ "js/chatbot.js" | relURL }}" defer></script>
+
+<script>
+(function () {
+  'use strict';
+
+  document.addEventListener('DOMContentLoaded', function () {
+    var toggleBtn   = document.getElementById('chatbot-toggle');
+    var panel       = document.getElementById('chatbot-panel');
+    var closeBtn    = document.getElementById('chatbot-close');
+    var iconOpen    = document.getElementById('chatbot-icon-open');
+    var iconClose   = document.getElementById('chatbot-icon-close');
+    var messages    = document.getElementById('chatbot-messages');
+    var form        = document.getElementById('chatbot-form');
+    var input       = document.getElementById('chatbot-input');
+    var opened      = false;
+    var welcomeSent = false;
+
+    if (!toggleBtn || !panel || !messages || !form || !input) return;
+
+    /* ── helpers ─────────────────────────────────────────── */
+
+    function openPanel() {
+      panel.classList.remove('hidden');
+      panel.classList.add('flex');
+      toggleBtn.setAttribute('aria-expanded', 'true');
+      toggleBtn.setAttribute('aria-label', 'Fechar assistente virtual');
+      if (iconOpen)  iconOpen.classList.add('hidden');
+      if (iconClose) iconClose.classList.remove('hidden');
+      opened = true;
+      input.focus();
+
+      if (!welcomeSent) {
+        showWelcome();
+        welcomeSent = true;
+      }
+    }
+
+    function closePanel() {
+      panel.classList.add('hidden');
+      panel.classList.remove('flex');
+      toggleBtn.setAttribute('aria-expanded', 'false');
+      toggleBtn.setAttribute('aria-label', 'Abrir assistente virtual');
+      if (iconOpen)  iconOpen.classList.remove('hidden');
+      if (iconClose) iconClose.classList.add('hidden');
+      opened = false;
+      toggleBtn.focus();
+    }
+
+    function isOpen() {
+      return opened;
+    }
+
+    /* ── message rendering ───────────────────────────────── */
+
+    function addBotMessage(text, link) {
+      var wrapper = document.createElement('div');
+      wrapper.className = 'flex justify-start';
+
+      var bubble = document.createElement('div');
+      bubble.className = 'bg-secondary text-primary rounded-lg px-3 py-2 text-sm max-w-[85%]';
+      bubble.textContent = text;
+
+      if (link) {
+        var a = document.createElement('a');
+        a.href = link;
+        a.textContent = 'Saber mais →';
+        a.className = 'block mt-1 text-xs text-primary underline hover:text-accent focus:outline-none focus:ring-1 focus:ring-accent';
+        bubble.appendChild(a);
+      }
+
+      wrapper.appendChild(bubble);
+      messages.appendChild(wrapper);
+      scrollToBottom();
+    }
+
+    function addUserMessage(text) {
+      var wrapper = document.createElement('div');
+      wrapper.className = 'flex justify-end';
+
+      var bubble = document.createElement('div');
+      bubble.className = 'bg-primary text-white rounded-lg px-3 py-2 text-sm max-w-[85%]';
+      bubble.textContent = text;
+
+      wrapper.appendChild(bubble);
+      messages.appendChild(wrapper);
+      scrollToBottom();
+    }
+
+    function addSuggestions(suggestions) {
+      if (!suggestions || suggestions.length === 0) return;
+
+      var wrapper = document.createElement('div');
+      wrapper.className = 'flex flex-wrap gap-2 mt-1';
+      wrapper.setAttribute('role', 'group');
+      wrapper.setAttribute('aria-label', 'Sugestões de perguntas');
+
+      for (var i = 0; i < suggestions.length; i++) {
+        (function (text) {
+          var btn = document.createElement('button');
+          btn.type = 'button';
+          btn.textContent = text;
+          btn.className = 'text-xs border border-primary text-primary rounded-full px-3 py-1 hover:bg-primary hover:text-white focus:outline-none focus:ring-2 focus:ring-accent transition-colors';
+          btn.setAttribute('aria-label', 'Perguntar: ' + text);
+          btn.addEventListener('click', function () {
+            handleUserInput(text);
+          });
+          wrapper.appendChild(btn);
+        })(suggestions[i]);
+      }
+
+      messages.appendChild(wrapper);
+      scrollToBottom();
+    }
+
+    function scrollToBottom() {
+      messages.scrollTop = messages.scrollHeight;
+    }
+
+    /* ── welcome message ─────────────────────────────────── */
+
+    function showWelcome() {
+      if (typeof window.chatbot === 'undefined' || typeof window.chatbot.findMatch !== 'function') {
+        addBotMessage('Olá! Sou o assistente virtual da ARPILF. Como posso ajudar?');
+        addSuggestions(['Quais são os serviços?', 'Qual o horário?', 'Como posso contactar?']);
+        return;
+      }
+
+      // Use saudação from knowledge-base via findMatch
+      var result = window.chatbot.findMatch('olá');
+      addBotMessage(result.resposta, result.link);
+      addSuggestions(result.sugestoes);
+    }
+
+    /* ── user input handling ─────────────────────────────── */
+
+    function handleUserInput(text) {
+      if (!text || text.trim() === '') return;
+
+      addUserMessage(text);
+
+      if (typeof window.chatbot === 'undefined' || typeof window.chatbot.findMatch !== 'function') {
+        addBotMessage('De momento não consigo ajudar. Contacte-nos pelo telefone 968 807 673 ou email arpilf@arpilf.pt.', '/contactos/');
+        return;
+      }
+
+      var result = window.chatbot.findMatch(text);
+      addBotMessage(result.resposta, result.link);
+      addSuggestions(result.sugestoes);
+    }
+
+    /* ── event listeners ─────────────────────────────────── */
+
+    // Toggle button
+    toggleBtn.addEventListener('click', function () {
+      if (isOpen()) {
+        closePanel();
+      } else {
+        openPanel();
+      }
+    });
+
+    // Close button in header
+    if (closeBtn) {
+      closeBtn.addEventListener('click', function () {
+        closePanel();
+      });
+    }
+
+    // Form submit (Enter key or send button)
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+      var text = input.value.trim();
+      if (text) {
+        handleUserInput(text);
+        input.value = '';
+        input.focus();
+      }
+    });
+
+    // Escape key to close
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape' && isOpen()) {
+        closePanel();
+      }
+    });
+
+    // Load knowledge base on page load
+    if (typeof window.chatbot !== 'undefined' && typeof window.chatbot.loadKnowledgeBase === 'function') {
+      window.chatbot.loadKnowledgeBase('{{ "js/knowledge-base.json" | relURL }}');
+    }
+  });
+})();
+</script>

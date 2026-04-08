@@ -1,0 +1,114 @@
+{{ define "main" }}
+<article class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-16">
+
+  <!-- Header -->
+  <header class="text-center mb-10">
+    <img src="{{ "images/logo2020.png" | relURL }}" alt="Logo ARPILF" class="mx-auto h-20 w-auto mb-6">
+    <h1 class="text-3xl md:text-4xl font-extrabold text-primary mb-3">{{ .Title }}</h1>
+    <p class="text-gray-500 text-sm">Última atualização: janeiro de 2025</p>
+  </header>
+
+  <!-- Document Card -->
+  <div class="bg-white rounded-xl shadow-sm border border-gray-200 p-8 sm:p-12 text-gray-700 leading-relaxed">
+
+    <p class="mb-8">
+      A ARPILF — Associação de Reformados, Pensionistas e Idosos — está empenhada em proteger a privacidade e os dados pessoais de todos os visitantes do seu website, em conformidade com o <span class="font-semibold">Regulamento (UE) 2016/679</span> (Regulamento Geral sobre a Proteção de Dados — RGPD) e com a legislação nacional aplicável (Lei n.º 58/2019, de 8 de agosto).
+    </p>
+
+    <!-- 1. Responsável pelo Tratamento -->
+    <h2 class="text-xl font-bold text-primary mt-12 mb-4">1. Responsável pelo Tratamento</h2>
+    <p class="mb-4">O responsável pelo tratamento dos dados pessoais recolhidos através deste website é:</p>
+    <div class="bg-primary/5 border-l-4 border-primary p-6 rounded-r-lg text-sm sm:text-base space-y-2">
+      <p><span class="font-semibold text-primary">Entidade:</span> ARPILF — Associação de Reformados, Pensionistas e Idosos</p>
+      <p><span class="font-semibold text-primary">Morada:</span> Rua de João Jacinto de Magalhães, nº 11, 2810-234 Laranjeiro</p>
+      <p><span class="font-semibold text-primary">Telefone:</span> 968 807 673 / 969 832 401 / 210 880 454</p>
+      <p><span class="font-semibold text-primary">Email:</span> <a href="mailto:arpilf@arpilf.pt" class="text-primary underline hover:text-accent transition-colors">arpilf@arpilf.pt</a></p>
+      <p><span class="font-semibold text-primary">NIF:</span> 504376187</p>
+    </div>
+
+    <!-- 2. Dados Pessoais Recolhidos -->
+    <h2 class="text-xl font-bold text-primary mt-12 mb-4">2. Dados Pessoais Recolhidos</h2>
+    <p class="mb-4">A ARPILF recolhe dados pessoais exclusivamente através do <span class="font-semibold">formulário de contacto</span> disponível no website. Os dados recolhidos são:</p>
+    <ul class="list-disc list-inside space-y-2 ml-2">
+      <li><span class="font-semibold">Nome</span> (obrigatório)</li>
+      <li><span class="font-semibold">Endereço de email</span> (obrigatório)</li>
+      <li><span class="font-semibold">Número de telefone</span> (opcional)</li>
+      <li><span class="font-semibold">Assunto da mensagem</span> (obrigatório)</li>
+      <li><span class="font-semibold">Conteúdo da mensagem</span> (obrigatório)</li>
+    </ul>
+    <p class="mt-4">Não são recolhidos dados sensíveis (dados de saúde, origem étnica, convicções políticas ou religiosas) através do website.</p>
+
+    <!-- 3. Finalidade do Tratamento -->
+    <h2 class="text-xl font-bold text-primary mt-12 mb-4">3. Finalidade do Tratamento</h2>
+    <p class="mb-4">Os dados pessoais recolhidos são tratados exclusivamente para as seguintes finalidades:</p>
+    <ul class="list-disc list-inside space-y-2 ml-2">
+      <li><span class="font-semibold">Responder a pedidos de informação</span> enviados através do formulário de contacto</li>
+      <li><span class="font-semibold">Dar seguimento a questões ou solicitações</span> apresentadas pelos visitantes</li>
+      <li><span class="font-semibold">Contactar o remetente</span> para esclarecimento ou resposta à sua mensagem</li>
+    </ul>
+    <p class="mt-4">Os dados pessoais não são utilizados para fins de marketing, publicidade ou qualquer outra finalidade que não as acima indicadas.</p>
+
+    <!-- 4. Base Legal do Tratamento -->
+    <h2 class="text-xl font-bold text-primary mt-12 mb-4">4. Base Legal do Tratamento</h2>
+    <p class="mb-4">O tratamento dos dados pessoais recolhidos através do formulário de contacto tem como base legal:</p>
+    <ul class="list-disc list-inside space-y-2 ml-2">
+      <li><span class="font-semibold">Consentimento do titular</span> (artigo 6.º, n.º 1, alínea a) do RGPD) — o visitante consente expressamente o tratamento dos seus dados ao preencher e submeter o formulário de contacto, assinalando a checkbox de consentimento obrigatória.</li>
+    </ul>
+    <p class="mt-4">O consentimento pode ser retirado a qualquer momento, sem que isso comprometa a licitude do tratamento efetuado com base no consentimento previamente dado.</p>
+
+    <!-- 5. Prazo de Conservação -->
+    <h2 class="text-xl font-bold text-primary mt-12 mb-4">5. Prazo de Conservação dos Dados</h2>
+    <p>Os dados pessoais recolhidos através do formulário de contacto são conservados pelo período estritamente necessário para dar resposta à solicitação do visitante, e no máximo por <span class="font-semibold">12 meses</span> após a última interação.</p>
+    <p class="mt-4">Findo este prazo, os dados são eliminados de forma segura, salvo se existir obrigação legal de conservação por período superior.</p>
+
+    <!-- 6. Partilha de Dados -->
+    <h2 class="text-xl font-bold text-primary mt-12 mb-4">6. Partilha de Dados com Terceiros</h2>
+    <p>A ARPILF <span class="font-semibold">não partilha, vende ou cede</span> dados pessoais a terceiros, exceto quando tal seja exigido por lei ou por ordem de autoridade competente.</p>
+    <p class="mt-4">Os dados recolhidos são tratados exclusivamente pela equipa da ARPILF responsável pela gestão das comunicações recebidas.</p>
+
+    <!-- 7. Medidas de Segurança -->
+    <h2 class="text-xl font-bold text-primary mt-12 mb-4">7. Medidas de Segurança</h2>
+    <p class="mb-4">A ARPILF adota medidas técnicas e organizativas adequadas para proteger os dados pessoais contra o acesso não autorizado, a perda, a destruição ou a alteração acidental, nomeadamente:</p>
+    <ul class="list-disc list-inside space-y-2 ml-2">
+      <li>Comunicação encriptada via <span class="font-semibold">HTTPS/SSL</span> em todo o website</li>
+      <li><span class="font-semibold">Validação e sanitização</span> de todos os dados submetidos no formulário de contacto</li>
+      <li><span class="font-semibold">Proteção contra spam</span> através de mecanismos automáticos</li>
+      <li>Acesso restrito aos dados recolhidos, limitado aos colaboradores autorizados</li>
+    </ul>
+
+    <!-- 8. Direitos dos Titulares -->
+    <h2 class="text-xl font-bold text-primary mt-12 mb-4">8. Direitos dos Titulares dos Dados</h2>
+    <p class="mb-4">Nos termos do RGPD, o titular dos dados pessoais tem os seguintes direitos:</p>
+    <ul class="list-disc list-inside space-y-2 ml-2">
+      <li><span class="font-semibold">Direito de acesso</span> — Solicitar informação sobre os dados pessoais que a ARPILF detém sobre si.</li>
+      <li><span class="font-semibold">Direito de retificação</span> — Solicitar a correção de dados pessoais inexatos ou incompletos.</li>
+      <li><span class="font-semibold">Direito ao apagamento</span> — Solicitar a eliminação dos seus dados pessoais.</li>
+      <li><span class="font-semibold">Direito à limitação do tratamento</span> — Solicitar a restrição do tratamento dos seus dados pessoais.</li>
+      <li><span class="font-semibold">Direito à portabilidade</span> — Solicitar a transferência dos seus dados pessoais para outra entidade.</li>
+      <li><span class="font-semibold">Direito de oposição</span> — Opor-se ao tratamento dos seus dados pessoais a qualquer momento.</li>
+      <li><span class="font-semibold">Direito de retirar o consentimento</span> — Retirar o consentimento dado, sem afetar a licitude do tratamento anterior.</li>
+    </ul>
+    <p class="mt-4">Para exercer qualquer um destes direitos, contacte-nos:</p>
+    <div class="bg-primary/5 border-l-4 border-primary p-6 rounded-r-lg text-sm sm:text-base space-y-1 mt-4">
+      <p><span class="font-semibold text-primary">Email:</span> <a href="mailto:arpilf@arpilf.pt" class="text-primary underline hover:text-accent transition-colors">arpilf@arpilf.pt</a></p>
+      <p><span class="font-semibold text-primary">Telefone:</span> 968 807 673 / 969 832 401 / 210 880 454</p>
+      <p><span class="font-semibold text-primary">Morada:</span> Rua de João Jacinto de Magalhães, nº 11, 2810-234 Laranjeiro</p>
+    </div>
+    <p class="mt-4">A ARPILF compromete-se a responder aos pedidos dos titulares no prazo máximo de <span class="font-semibold">30 dias</span>.</p>
+
+    <!-- 9. Direito de Reclamação -->
+    <h2 class="text-xl font-bold text-primary mt-12 mb-4">9. Direito de Reclamação</h2>
+    <p class="mb-4">Se considerar que o tratamento dos seus dados pessoais viola o RGPD, tem o direito de apresentar uma reclamação junto da <span class="font-semibold">Comissão Nacional de Proteção de Dados (CNPD)</span>:</p>
+    <div class="bg-gray-50 border-l-4 border-gray-300 p-6 rounded-r-lg text-sm sm:text-base space-y-1">
+      <p><span class="font-semibold">Website:</span> <a href="https://www.cnpd.pt" class="text-primary underline hover:text-accent transition-colors" target="_blank" rel="noopener">www.cnpd.pt</a></p>
+      <p><span class="font-semibold">Morada:</span> Rua de São Bento, n.º 148, 3.º, 1200-821 Lisboa</p>
+      <p><span class="font-semibold">Telefone:</span> +351 213 928 400</p>
+    </div>
+
+    <!-- 10. Alterações -->
+    <h2 class="text-xl font-bold text-primary mt-12 mb-4">10. Alterações a Esta Política</h2>
+    <p>A ARPILF reserva-se o direito de atualizar esta política de proteção de dados a qualquer momento. Quaisquer alterações serão publicadas nesta página com a data de atualização.</p>
+
+  </div>
+</article>
+{{ end }}

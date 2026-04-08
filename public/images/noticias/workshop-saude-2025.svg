@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="450" viewBox="0 0 800 450">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#003366;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#004d99;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  <rect width="800" height="450" fill="url(#bg)"/>
+  <!-- Health cross icon -->
+  <rect x="362" y="140" width="76" height="76" rx="12" fill="#fecb00" opacity="0.9"/>
+  <rect x="388" y="152" width="24" height="52" rx="4" fill="#003366"/>
+  <rect x="374" y="166" width="52" height="24" rx="4" fill="#003366"/>
+  <!-- Text -->
+  <text x="400" y="270" text-anchor="middle" font-family="Arial, sans-serif" font-size="28" font-weight="bold" fill="white">Workshop de Saúde</text>
+  <text x="400" y="305" text-anchor="middle" font-family="Arial, sans-serif" font-size="20" fill="white" opacity="0.7">e Bem-Estar</text>
+  <text x="400" y="350" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" fill="#fecb00">ARPILF — Junho 2025</text>
+</svg>

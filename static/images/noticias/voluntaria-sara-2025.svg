@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="450" viewBox="0 0 800 450">
+  <defs>
+    <linearGradient id="bg3" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#003366;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#1a3a5c;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  <rect width="800" height="450" fill="url(#bg3)"/>
+  <!-- Heart in hands icon -->
+  <path d="M400 195 C400 170, 370 150, 355 165 C340 180, 355 200, 400 225 C445 200, 460 180, 445 165 C430 150, 400 170, 400 195Z" fill="#fecb00" opacity="0.9"/>
+  <!-- Hands -->
+  <path d="M340 220 Q340 245 370 250 L400 260 L430 250 Q460 245 460 220" fill="none" stroke="white" stroke-width="3" stroke-linecap="round" opacity="0.6"/>
+  <path d="M330 230 Q325 250 345 260" fill="none" stroke="white" stroke-width="3" stroke-linecap="round" opacity="0.5"/>
+  <path d="M470 230 Q475 250 455 260" fill="none" stroke="white" stroke-width="3" stroke-linecap="round" opacity="0.5"/>
+  <!-- Text -->
+  <text x="400" y="310" text-anchor="middle" font-family="Arial, sans-serif" font-size="28" font-weight="bold" fill="white">Voluntário em Destaque</text>
+  <text x="400" y="345" text-anchor="middle" font-family="Arial, sans-serif" font-size="20" fill="white" opacity="0.7">Conheça a Sara</text>
+  <text x="400" y="390" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" fill="#fecb00">ARPILF — Julho 2025</text>
+</svg>

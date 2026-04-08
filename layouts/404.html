@@ -1,0 +1,33 @@
+{{ define "main" }}
+
+<section class="py-16 md:py-24">
+  <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+    <div class="text-6xl md:text-8xl font-bold text-primary mb-6" aria-hidden="true">404</div>
+    <h1 class="text-2xl md:text-4xl font-bold text-primary mb-4">
+      Página não encontrada
+    </h1>
+    <p class="text-lg text-gray-700 mb-8 leading-relaxed">
+      Lamentamos, mas a página que procura não existe ou foi movida.
+      Utilize os links abaixo para navegar pelo nosso website.
+    </p>
+
+    <nav aria-label="Links de navegação" class="mb-12">
+      <ul class="flex flex-wrap justify-center gap-4">
+        {{ range .Site.Menus.main }}
+        <li>
+          <a href="{{ .URL }}" class="inline-block bg-primary text-white font-semibold px-6 py-3 rounded-lg hover:bg-blue-900 transition-colors duration-200">
+            {{ .Name }}
+          </a>
+        </li>
+        {{ end }}
+      </ul>
+    </nav>
+
+    <p class="text-gray-600">
+      Se precisar de ajuda, não hesite em
+      <a href="{{ "contactos/" | relURL }}" class="text-primary font-semibold hover:text-accent transition-colors duration-200">contactar-nos</a>.
+    </p>
+  </div>
+</section>
+
+{{ end }}

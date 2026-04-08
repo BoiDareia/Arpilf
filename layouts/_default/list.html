@@ -1,0 +1,30 @@
+{{ define "main" }}
+<section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+  <h1 class="text-3xl font-bold text-primary mb-8">{{ .Title }}</h1>
+
+  {{ .Content }}
+
+  {{ $pages := .Pages }}
+  {{ if $pages }}
+  <ul class="mt-8 space-y-6">
+    {{ range $pages }}
+    <li>
+      <a href="{{ .RelPermalink }}" class="block p-6 bg-white rounded-lg shadow hover:shadow-md transition-shadow duration-200 border-l-4 border-accent">
+        <h2 class="text-xl font-semibold text-primary hover:text-accent transition-colors duration-200">{{ .Title }}</h2>
+        {{ with .Date }}
+          {{ if not (eq .Year 1) }}
+          <time datetime="{{ .Format "2006-01-02" }}" class="text-sm text-gray-500 mt-1 block">
+            {{ .Format "2 January 2006" }}
+          </time>
+          {{ end }}
+        {{ end }}
+        {{ with .Description }}
+        <p class="mt-2 text-gray-600">{{ . }}</p>
+        {{ end }}
+      </a>
+    </li>
+    {{ end }}
+  </ul>
+  {{ end }}
+</section>
+{{ end }}

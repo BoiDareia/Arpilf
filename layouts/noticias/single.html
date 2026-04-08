@@ -1,0 +1,60 @@
+{{ define "main" }}
+<article class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-16">
+
+  <!-- Header -->
+  <header class="mb-10">
+    <h1 class="text-3xl sm:text-4xl md:text-5xl font-extrabold text-primary mb-6 leading-tight">
+      {{ .Title }}
+    </h1>
+    <div class="flex items-center gap-4 text-sm font-semibold text-gray-500 uppercase tracking-wider">
+      <time datetime="{{ .Date.Format "2006-01-02" }}" class="flex items-center gap-1.5">
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/>
+        </svg>
+        {{ .Date.Format "2 January 2006" }}
+      </time>
+      {{ with .Params.tags }}
+      <span class="text-gray-300">|</span>
+      <div class="flex gap-2">
+        {{ range . }}
+        <span class="text-xs bg-primary/5 text-primary px-2 py-0.5 rounded-full normal-case tracking-normal font-medium">{{ . }}</span>
+        {{ end }}
+      </div>
+      {{ end }}
+    </div>
+  </header>
+
+  <!-- Featured Image -->
+  {{ with .Params.image }}
+  <figure class="mb-12">
+    <img src="{{ strings.TrimLeft "/" . | relURL }}" alt="{{ $.Title }}" class="w-full h-auto aspect-video object-cover rounded-2xl shadow-md">
+  </figure>
+  {{ end }}
+
+  <!-- Article Content (Option B: no typography plugin, child selectors) -->
+  <div class="
+    text-gray-700
+    [&>p]:mb-6 [&>p]:leading-relaxed [&>p]:text-lg
+    [&>h2]:text-2xl [&>h2]:font-bold [&>h2]:text-primary [&>h2]:mt-10 [&>h2]:mb-4
+    [&>h3]:text-xl [&>h3]:font-semibold [&>h3]:text-primary/80 [&>h3]:mt-8 [&>h3]:mb-3
+    [&>ul]:list-disc [&>ul]:list-inside [&>ul]:space-y-2 [&>ul]:ml-2 [&>ul]:mb-6 [&>ul]:text-lg [&>ul]:leading-relaxed
+    [&>ol]:list-decimal [&>ol]:list-inside [&>ol]:space-y-2 [&>ol]:ml-2 [&>ol]:mb-6 [&>ol]:text-lg
+    [&>blockquote]:border-l-4 [&>blockquote]:border-accent [&>blockquote]:bg-gray-50 [&>blockquote]:p-6 [&>blockquote]:italic [&>blockquote]:text-gray-800 [&>blockquote]:my-8 [&>blockquote]:rounded-r-lg [&>blockquote]:text-lg
+    [&>a]:text-primary [&>a]:underline [&>a]:hover:text-accent
+    [&_a]:text-primary [&_a]:underline [&_a]:transition-colors [&_a]:duration-200
+  ">
+    {{ .Content }}
+  </div>
+
+  <!-- Back Link -->
+  <div class="mt-16 pt-8 border-t border-gray-200">
+    <a href="{{ "noticias/" | relURL }}" class="inline-flex items-center gap-2 text-primary font-semibold hover:text-accent transition-colors duration-200">
+      <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/>
+      </svg>
+      Voltar às Notícias
+    </a>
+  </div>
+
+</article>
+{{ end }}

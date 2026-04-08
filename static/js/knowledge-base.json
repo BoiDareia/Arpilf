@@ -1,0 +1,125 @@
+{
+  "saudacao": {
+    "patterns": [
+      "olá",
+      "ola",
+      "boa tarde",
+      "bom dia",
+      "boa noite",
+      "hey",
+      "viva",
+      "saudação"
+    ],
+    "resposta": "Olá! Sou o assistente virtual da ARPILF. Como posso ajudar?",
+    "sugestoes": [
+      "Quais são os serviços?",
+      "Qual o horário?",
+      "Como posso contactar?"
+    ]
+  },
+  "servicos": {
+    "patterns": [
+      "serviço",
+      "servico",
+      "centro de dia",
+      "apoio domiciliário",
+      "apoio domiciliario",
+      "lar",
+      "cantina",
+      "erpi",
+      "sad",
+      "resposta social"
+    ],
+    "resposta": "A ARPILF oferece: Centro de Dia, Apoio Domiciliário (SAD), Estrutura Residencial (ERPI) e Cantina Social. Visite a nossa página de serviços para mais detalhes.",
+    "link": "/servicos/",
+    "sugestoes": ["Qual o horário?", "Como posso contactar?", "Onde ficam?"]
+  },
+  "horarios": {
+    "patterns": [
+      "horário",
+      "horario",
+      "hora",
+      "aberto",
+      "abre",
+      "fecha",
+      "funcionamento",
+      "quando"
+    ],
+    "resposta": "O Centro de Dia funciona de segunda a sexta-feira. Para informações detalhadas sobre horários, por favor contacte-nos diretamente.",
+    "link": "/contactos/",
+    "sugestoes": ["Como posso contactar?", "Quais são os serviços?"]
+  },
+  "contactos": {
+    "patterns": [
+      "contacto",
+      "contactar",
+      "telefone",
+      "email",
+      "ligar",
+      "telefonar",
+      "falar",
+      "morada"
+    ],
+    "resposta": "Pode contactar a ARPILF pelo telefone 968 807 673 ou email arpilf@arpilf.pt. Visite a nossa página de contactos para mais informações.",
+    "link": "/contactos/",
+    "sugestoes": ["Onde ficam?", "Quais são os serviços?"]
+  },
+  "donativos": {
+    "patterns": [
+      "donativo",
+      "doar",
+      "contribuir",
+      "ajudar",
+      "iban",
+      "transferência",
+      "transferencia",
+      "apoiar"
+    ],
+    "resposta": "Pode apoiar a ARPILF através de transferência bancária. Visite a nossa página de donativos para consultar o IBAN e informações sobre benefícios fiscais.",
+    "link": "/donativos/",
+    "sugestoes": ["Quais são os serviços?", "Como posso contactar?"]
+  },
+  "documentos": {
+    "patterns": [
+      "documento",
+      "relatório",
+      "relatorio",
+      "regulamento",
+      "estatuto",
+      "ficha",
+      "inscrição",
+      "inscricao",
+      "pdf",
+      "download"
+    ],
+    "resposta": "Disponibilizamos diversos documentos públicos: relatórios financeiros, regulamentos, estatutos e fichas de inscrição. Consulte a nossa página de documentos.",
+    "link": "/documentos/",
+    "sugestoes": ["Quais são os serviços?", "Como posso contactar?"]
+  },
+  "localizacao": {
+    "patterns": [
+      "localização",
+      "localizacao",
+      "onde",
+      "mapa",
+      "direções",
+      "direcoes",
+      "chegar",
+      "endereço",
+      "endereco"
+    ],
+    "resposta": "A ARPILF está localizada na Rua de João Jacinto de Magalhães, nº 11, 2810-234 Laranjeiro. Visite a nossa página de contactos para ver o mapa com a localização exata.",
+    "link": "/contactos/",
+    "sugestoes": ["Como posso contactar?", "Quais são os serviços?"]
+  },
+  "fallback": {
+    "patterns": [],
+    "resposta": "Não consegui encontrar uma resposta para a sua pergunta. Por favor, contacte a ARPILF diretamente pelo telefone 968 807 673 ou email arpilf@arpilf.pt.",
+    "link": "/contactos/",
+    "sugestoes": [
+      "Quais são os serviços?",
+      "Qual o horário?",
+      "Como posso contactar?"
+    ]
+  }
+}

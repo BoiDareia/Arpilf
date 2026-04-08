@@ -1,0 +1,46 @@
+{{ define "main" }}
+<section class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-16">
+
+  <!-- Header with logo -->
+  <header class="text-center mb-12">
+    <img src="{{ "images/logo2020.png" | relURL }}" alt="Logo ARPILF" class="mx-auto h-28 w-auto mb-6">
+    <h1 class="text-4xl font-extrabold text-primary mb-4">{{ .Title }}</h1>
+    <p class="text-lg text-gray-600 max-w-2xl mx-auto leading-relaxed">
+      Aqui encontra os vários projectos desenvolvidos e aplicados pela nossa associação ao serviço da comunidade.
+    </p>
+  </header>
+
+  <!-- Projects list (documents style) -->
+  {{ with site.Data.projectos.projectos }}
+  <div class="space-y-4">
+    <h2 class="text-2xl font-bold text-primary mb-6 flex items-center gap-2 border-b border-gray-200 pb-2">
+      <svg class="w-6 h-6 text-accent flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
+      </svg>
+      Projectos da ARPILF
+    </h2>
+
+    <ul class="space-y-4" role="list">
+      {{ range . }}
+      <li class="bg-white p-5 rounded-lg border border-gray-200 shadow-sm hover:shadow-md hover:border-primary/30 transition-all duration-200 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+        <div class="flex-1 min-w-0">
+          <span class="text-lg font-semibold text-gray-800">{{ .titulo }}</span>
+          {{ with .descricao }}
+          <p class="text-sm text-gray-500 mt-1">{{ . }}</p>
+          {{ end }}
+        </div>
+        <a href="{{ strings.TrimLeft "/" .ficheiro | relURL }}" download class="inline-flex items-center gap-2 bg-primary text-white px-5 py-2.5 rounded-lg hover:bg-primary/85 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary transition-colors duration-200 text-sm font-semibold whitespace-nowrap flex-shrink-0" aria-label="Descarregar {{ .titulo }} (PDF)">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
+          </svg>
+          Descarregar PDF
+        </a>
+      </li>
+      {{ end }}
+    </ul>
+  </div>
+  {{ else }}
+  <p class="text-gray-600 text-lg text-center">De momento não existem projectos disponíveis.</p>
+  {{ end }}
+</section>
+{{ end }}

@@ -1,0 +1,14 @@
+{
+  "name": "arpilf-website",
+  "version": "1.0.0",
+  "private": true,
+  "description": "ARPILF website tests",
+  "scripts": {
+    "test:js": "vitest run --config tests/js/vitest.config.js"
+  },
+  "devDependencies": {
+    "vitest": "^3.2.1",
+    "fast-check": "^4.1.1",
+    "jsdom": "^26.1.0"
+  }
+}

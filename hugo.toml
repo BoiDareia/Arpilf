@@ -1,0 +1,62 @@
+baseURL = "https://arpilf.pt/"
+languageCode = "pt-PT"
+title = "ARPILF — Associação de Reformados, Pensionistas e Idosos"
+removePathAccents = true
+enableRobotsTXT = true
+
+[params]
+  description = "Centro de dia e apoio a idosos"
+  email = "arpilf@arpilf.pt"
+  telefone = "968 807 673 / 969 832 401 / 210 880 454"
+  morada = "Rua de João Jacinto de Magalhães, nº 11, 2810-234 Laranjeiro"
+  iban = "[IBAN]"
+
+[params.cores]
+  primary = "#003366"
+  accent = "#fecb00"
+  secondary = "#f8f9fa"
+
+[menu]
+  [[menu.main]]
+    name = "Início"
+    url = "/"
+    weight = 1
+  [[menu.main]]
+    name = "Sobre Nós"
+    url = "/sobre/"
+    weight = 2
+  [[menu.main]]
+    name = "Serviços"
+    url = "/servicos/"
+    weight = 3
+  [[menu.main]]
+    name = "Notícias"
+    url = "/noticias/"
+    weight = 4
+  [[menu.main]]
+    name = "Documentos"
+    url = "/documentos/"
+    weight = 5
+  [[menu.main]]
+    name = "Contactos"
+    url = "/contactos/"
+    weight = 6
+  [[menu.main]]
+    name = "Donativos"
+    url = "/donativos/"
+    weight = 7
+  [[menu.main]]
+    name = "Parceiros"
+    url = "/parceiros/"
+    weight = 8
+  [[menu.main]]
+    name = "Projectos"
+    url = "/projectos/"
+    weight = 9
+
+[outputs]
+  home = ["HTML", "RSS"]
+
+[sitemap]
+  changefreq = "weekly"
+  filename = "sitemap.xml"

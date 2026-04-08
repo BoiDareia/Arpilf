@@ -1,0 +1,5 @@
+# Staging override — deploy to /novo/ subfolder
+baseURL = "https://arpilf.pt/novo/"
+
+# Disable robots indexing for staging
+enableRobotsTXT = false

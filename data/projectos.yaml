@@ -1,0 +1,24 @@
+projectos:
+  - titulo: "Fantoches — Títeres para a Infância"
+    ficheiro: "/documentos/projectos/Fantoches_titres.pdf"
+    descricao: "Projeto de animação com fantoches dirigido à infância"
+
+  - titulo: "Jornalito nº 16"
+    ficheiro: "/documentos/projectos/jornalito_16.pdf"
+    descricao: "Publicação periódica da ARPILF"
+
+  - titulo: "A Taverna do Ramalhinho (Teatro)"
+    ficheiro: "/documentos/projectos/Taverna_Ramalhinho.pdf"
+    descricao: "Projeto de teatro comunitário"
+
+  - titulo: "Espaço com Vida"
+    ficheiro: "/documentos/projectos/Espaco_Vida.pdf"
+    descricao: "Projeto de dinamização de espaços comunitários"
+
+  - titulo: "Gigantones"
+    ficheiro: "/documentos/projectos/Gigantones.pdf"
+    descricao: "Projeto cultural de animação de rua"
+
+  - titulo: "Novas Vivências para a Comunidade com Snoezelen"
+    ficheiro: "/documentos/projectos/Snoezelen.pdf"
+    descricao: "Projeto de estimulação sensorial para a comunidade"

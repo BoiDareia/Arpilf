@@ -1,0 +1,146 @@
+{{ define "main" }}
+<article class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-16">
+
+  <!-- Header with logo -->
+  <header class="text-center mb-12">
+    <img src="{{ "images/logo2020.png" | relURL }}" alt="Logo ARPILF" class="mx-auto h-28 w-auto mb-6">
+    <h1 class="text-4xl font-extrabold text-primary mb-4">{{ .Title }}</h1>
+    <p class="text-lg text-gray-600 max-w-2xl mx-auto leading-relaxed">
+      A ARPILF trabalha em parceria com diversas entidades públicas e privadas que partilham o compromisso de apoiar a comunidade e promover o bem-estar social.
+    </p>
+  </header>
+
+  <!-- Partners Grid -->
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+
+    <div class="bg-white rounded-xl border border-gray-100 shadow-sm p-6 flex items-start gap-4 hover:shadow-md hover:border-primary/20 transition-all duration-200">
+      <span class="w-10 h-10 rounded-full bg-primary/5 flex items-center justify-center flex-shrink-0 text-lg">🏛️</span>
+      <div>
+        <h3 class="font-bold text-primary">Instituto da Segurança Social, IP</h3>
+        <p class="text-gray-500 text-sm mt-1">Entidade tutelar e parceira nas respostas sociais</p>
+      </div>
+    </div>
+
+    <div class="bg-white rounded-xl border border-gray-100 shadow-sm p-6 flex items-start gap-4 hover:shadow-md hover:border-primary/20 transition-all duration-200">
+      <span class="w-10 h-10 rounded-full bg-primary/5 flex items-center justify-center flex-shrink-0 text-lg">🏛️</span>
+      <div>
+        <h3 class="font-bold text-primary">Câmara Municipal de Almada</h3>
+        <p class="text-gray-500 text-sm mt-1">Autarquia local</p>
+      </div>
+    </div>
+
+    <div class="bg-white rounded-xl border border-gray-100 shadow-sm p-6 flex items-start gap-4 hover:shadow-md hover:border-primary/20 transition-all duration-200">
+      <span class="w-10 h-10 rounded-full bg-primary/5 flex items-center justify-center flex-shrink-0 text-lg">🤝</span>
+      <div>
+        <h3 class="font-bold text-primary">Conselho Local de Ação Social (CLASA)</h3>
+        <p class="text-gray-500 text-sm mt-1">Rede local de ação social</p>
+      </div>
+    </div>
+
+    <div class="bg-white rounded-xl border border-gray-100 shadow-sm p-6 flex items-start gap-4 hover:shadow-md hover:border-primary/20 transition-all duration-200">
+      <span class="w-10 h-10 rounded-full bg-primary/5 flex items-center justify-center flex-shrink-0 text-lg">👴</span>
+      <div>
+        <h3 class="font-bold text-primary">Grupo Concelhio Para a Pessoa Idosa</h3>
+        <p class="text-gray-500 text-sm mt-1">Apoio à população idosa do concelho</p>
+      </div>
+    </div>
+
+    <div class="bg-white rounded-xl border border-gray-100 shadow-sm p-6 flex items-start gap-4 hover:shadow-md hover:border-primary/20 transition-all duration-200">
+      <span class="w-10 h-10 rounded-full bg-primary/5 flex items-center justify-center flex-shrink-0 text-lg">🏛️</span>
+      <div>
+        <h3 class="font-bold text-primary">Junta de Freguesia de Laranjeiro e Feijó</h3>
+        <p class="text-gray-500 text-sm mt-1">Autarquia de proximidade</p>
+      </div>
+    </div>
+
+    <div class="bg-white rounded-xl border border-gray-100 shadow-sm p-6 flex items-start gap-4 hover:shadow-md hover:border-primary/20 transition-all duration-200">
+      <span class="w-10 h-10 rounded-full bg-primary/5 flex items-center justify-center flex-shrink-0 text-lg">🤝</span>
+      <div>
+        <h3 class="font-bold text-primary">Comissão Social de Freguesias</h3>
+        <p class="text-gray-500 text-sm mt-1">Rede social de proximidade</p>
+      </div>
+    </div>
+
+    <div class="bg-white rounded-xl border border-gray-100 shadow-sm p-6 flex items-start gap-4 hover:shadow-md hover:border-primary/20 transition-all duration-200">
+      <span class="w-10 h-10 rounded-full bg-primary/5 flex items-center justify-center flex-shrink-0 text-lg">⚖️</span>
+      <div>
+        <h3 class="font-bold text-primary">Ministério da Justiça — Direção de Reinserção Social</h3>
+        <p class="text-gray-500 text-sm mt-1">Reinserção e apoio social</p>
+      </div>
+    </div>
+
+    <div class="bg-white rounded-xl border border-gray-100 shadow-sm p-6 flex items-start gap-4 hover:shadow-md hover:border-primary/20 transition-all duration-200">
+      <span class="w-10 h-10 rounded-full bg-primary/5 flex items-center justify-center flex-shrink-0 text-lg">🛡️</span>
+      <div>
+        <h3 class="font-bold text-primary">RADAR</h3>
+        <p class="text-gray-500 text-sm mt-1">Rede de Apoio a Idosos Vítimas de Violência</p>
+      </div>
+    </div>
+
+    <div class="bg-white rounded-xl border border-gray-100 shadow-sm p-6 flex items-start gap-4 hover:shadow-md hover:border-primary/20 transition-all duration-200">
+      <span class="w-10 h-10 rounded-full bg-primary/5 flex items-center justify-center flex-shrink-0 text-lg">💼</span>
+      <div>
+        <h3 class="font-bold text-primary">IEFP Almada/Seixal</h3>
+        <p class="text-gray-500 text-sm mt-1">Instituto do Emprego e Formação Profissional</p>
+      </div>
+    </div>
+
+    <div class="bg-white rounded-xl border border-gray-100 shadow-sm p-6 flex items-start gap-4 hover:shadow-md hover:border-primary/20 transition-all duration-200">
+      <span class="w-10 h-10 rounded-full bg-primary/5 flex items-center justify-center flex-shrink-0 text-lg">🏥</span>
+      <div>
+        <h3 class="font-bold text-primary">ACES — Almada/Seixal</h3>
+        <p class="text-gray-500 text-sm mt-1">Agrupamento de Centros de Saúde</p>
+      </div>
+    </div>
+
+    <div class="bg-white rounded-xl border border-gray-100 shadow-sm p-6 flex items-start gap-4 hover:shadow-md hover:border-primary/20 transition-all duration-200">
+      <span class="w-10 h-10 rounded-full bg-primary/5 flex items-center justify-center flex-shrink-0 text-lg">🍞</span>
+      <div>
+        <h3 class="font-bold text-primary">Banco Alimentar Contra a Fome — Setúbal</h3>
+        <p class="text-gray-500 text-sm mt-1">Apoio alimentar à comunidade</p>
+      </div>
+    </div>
+
+    <div class="bg-white rounded-xl border border-gray-100 shadow-sm p-6 flex items-start gap-4 hover:shadow-md hover:border-primary/20 transition-all duration-200">
+      <span class="w-10 h-10 rounded-full bg-primary/5 flex items-center justify-center flex-shrink-0 text-lg">🎓</span>
+      <div>
+        <h3 class="font-bold text-primary">Escolas Profissionais — EPEDE, APPCDM</h3>
+        <p class="text-gray-500 text-sm mt-1">Formação profissional e inclusão</p>
+      </div>
+    </div>
+
+    <div class="bg-white rounded-xl border border-gray-100 shadow-sm p-6 flex items-start gap-4 hover:shadow-md hover:border-primary/20 transition-all duration-200">
+      <span class="w-10 h-10 rounded-full bg-primary/5 flex items-center justify-center flex-shrink-0 text-lg">🥁</span>
+      <div>
+        <h3 class="font-bold text-primary">Associação Porbatuka — Almada</h3>
+        <p class="text-gray-500 text-sm mt-1">Associação cultural e comunitária</p>
+      </div>
+    </div>
+
+    <div class="bg-white rounded-xl border border-gray-100 shadow-sm p-6 flex items-start gap-4 hover:shadow-md hover:border-primary/20 transition-all duration-200">
+      <span class="w-10 h-10 rounded-full bg-primary/5 flex items-center justify-center flex-shrink-0 text-lg">♿</span>
+      <div>
+        <h3 class="font-bold text-primary">APCAS</h3>
+        <p class="text-gray-500 text-sm mt-1">Associação de Paralisia Cerebral Almada/Seixal</p>
+      </div>
+    </div>
+
+    <div class="bg-white rounded-xl border border-gray-100 shadow-sm p-6 flex items-start gap-4 hover:shadow-md hover:border-primary/20 transition-all duration-200">
+      <span class="w-10 h-10 rounded-full bg-primary/5 flex items-center justify-center flex-shrink-0 text-lg">🍽️</span>
+      <div>
+        <h3 class="font-bold text-primary">Refood — Almada</h3>
+        <p class="text-gray-500 text-sm mt-1">Combate ao desperdício alimentar</p>
+      </div>
+    </div>
+
+    <div class="bg-white rounded-xl border border-gray-100 shadow-sm p-6 flex items-start gap-4 hover:shadow-md hover:border-primary/20 transition-all duration-200 md:col-span-2">
+      <span class="w-10 h-10 rounded-full bg-primary/5 flex items-center justify-center flex-shrink-0 text-lg">🏠</span>
+      <div>
+        <h3 class="font-bold text-primary">A Casa Árabe Portuguesa — Projecto Al.madense</h3>
+        <p class="text-gray-500 text-sm mt-1">Projeto cultural e comunitário</p>
+      </div>
+    </div>
+
+  </div>
+</article>
+{{ end }}

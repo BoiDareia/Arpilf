@@ -1,0 +1,52 @@
+{{/* Partial: document-list.html
+     Renders a single document category as a collapsible accordion.
+     Expects a category object with: nome, slug, documentos[] */}}
+
+{{ $categoria := . }}
+
+<details id="{{ $categoria.slug }}" class="group border border-gray-200 rounded-xl overflow-hidden">
+  <summary class="flex items-center justify-between gap-2 cursor-pointer bg-white px-6 py-4 hover:bg-gray-50 transition-colors duration-200 select-none">
+    <span class="flex items-center gap-3">
+      <svg class="w-6 h-6 text-accent flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 7v10a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2h-6l-2-2H5a2 2 0 00-2 2z"/>
+      </svg>
+      <span class="text-xl font-bold text-primary">{{ $categoria.nome }}</span>
+      {{ if $categoria.documentos }}
+      <span class="text-xs font-medium text-gray-400 bg-gray-100 px-2 py-0.5 rounded-full">{{ len $categoria.documentos }}</span>
+      {{ end }}
+    </span>
+    <svg class="w-5 h-5 text-gray-400 transition-transform duration-200 group-open:rotate-180 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+    </svg>
+  </summary>
+
+  <div class="px-6 pb-5 pt-2">
+    {{ if $categoria.documentos }}
+    <ul class="space-y-3" role="list">
+      {{ range $categoria.documentos }}
+      <li class="bg-white p-4 rounded-lg border border-gray-200 shadow-sm hover:shadow-md hover:border-primary/30 transition-all duration-200 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+        <div class="flex-1 min-w-0">
+          <span class="text-lg font-semibold text-gray-800">{{ .titulo }}</span>
+          {{ with .data }}
+          <time datetime="{{ . }}" class="flex items-center gap-1 text-sm text-gray-500 mt-1">
+            <svg class="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/>
+            </svg>
+            {{ . }}
+          </time>
+          {{ end }}
+        </div>
+        <a href="{{ strings.TrimLeft "/" .ficheiro | relURL }}" download class="inline-flex items-center gap-2 bg-primary text-white px-5 py-2.5 rounded-lg hover:bg-primary/85 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary transition-colors duration-200 text-sm font-semibold whitespace-nowrap flex-shrink-0" aria-label="Descarregar {{ .titulo }} (PDF)">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
+          </svg>
+          Descarregar PDF
+        </a>
+      </li>
+      {{ end }}
+    </ul>
+    {{ else }}
+    <p class="text-gray-500 italic text-sm">De momento não existem documentos nesta categoria.</p>
+    {{ end }}
+  </div>
+</details>
