@@ -1,0 +1,13 @@
+# Tailwind CSS CLI binary
+tailwindcss
+tailwindcss.exe
+
+# Hugo build output
+public/
+
+# Node modules (test dependencies)
+node_modules/
+
+# OS files
+.DS_Store
+Thumbs.db
