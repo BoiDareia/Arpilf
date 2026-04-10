@@ -44,17 +44,23 @@ jobs:
 
       - name: Deploy via FTP
         if: success()
+        env:
+          FTP_USER: ${{ secrets.SFTP_USER }}
+          FTP_PASS: ${{ secrets.SFTP_PASSWORD }}
+          FTP_HOST: ${{ secrets.SFTP_HOST }}
+          FTP_PATH: ${{ secrets.SFTP_PATH }}
         run: |
           sudo apt-get update -qq && sudo apt-get install -y -qq lftp
-          lftp -e "
-            set ssl:verify-certificate no;
-            set ftp:ssl-allow yes;
-            set ftp:ssl-protect-data yes;
-            set net:max-retries 3;
-            set net:reconnect-interval-base 5;
-            set net:timeout 30;
-            open -u ${{ secrets.SFTP_USER }},${{ secrets.SFTP_PASSWORD }} ftp://${{ secrets.SFTP_HOST }};
-            mirror --reverse --delete --verbose --parallel=4 \
-              ./public/ ${{ secrets.SFTP_PATH }};
-            bye
-          "
+          cat > /tmp/lftp-deploy.sh << 'SCRIPT'
+          set ssl:verify-certificate no
+          set ftp:ssl-allow yes
+          set ftp:ssl-protect-data yes
+          set net:max-retries 3
+          set net:reconnect-interval-base 5
+          set net:timeout 30
+          SCRIPT
+          echo "open ftp://${FTP_HOST}" >> /tmp/lftp-deploy.sh
+          echo "user \"${FTP_USER}\" \"${FTP_PASS}\"" >> /tmp/lftp-deploy.sh
+          echo "mirror --reverse --delete --verbose --parallel=4 ./public/ ${FTP_PATH}" >> /tmp/lftp-deploy.sh
+          echo "bye" >> /tmp/lftp-deploy.sh
+          lftp -f /tmp/lftp-deploy.sh
