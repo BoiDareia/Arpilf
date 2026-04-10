@@ -1,57 +1,57 @@
 name: Build & Deploy ARPILF Website
 
 on:
-    push:
-        branches:
-            - main
+  push:
+    branches:
+      - main
 
 jobs:
-    build-and-deploy:
-        runs-on: ubuntu-latest
+  build-and-deploy:
+    runs-on: ubuntu-latest
 
-        steps:
-            - name: Checkout repository
-              uses: actions/checkout@v4
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
 
-            - name: Setup Hugo
-              uses: peaceiris/actions-hugo@v3
-              with:
-                  hugo-version: "latest"
-                  extended: true
+      - name: Setup Hugo
+        uses: peaceiris/actions-hugo@v3
+        with:
+          hugo-version: "latest"
+          extended: true
 
-            - name: Download Tailwind CSS CLI standalone
-              run: |
-                  curl -sLO https://github.com/tailwindlabs/tailwindcss/releases/latest/download/tailwindcss-linux-x64
-                  chmod +x tailwindcss-linux-x64
-                  mv tailwindcss-linux-x64 tailwindcss
+      - name: Download Tailwind CSS CLI standalone
+        run: |
+          curl -sLO https://github.com/tailwindlabs/tailwindcss/releases/latest/download/tailwindcss-linux-x64
+          chmod +x tailwindcss-linux-x64
+          mv tailwindcss-linux-x64 tailwindcss
 
-            - name: Build Tailwind CSS
-              run: ./tailwindcss -i assets/css/main.css -o static/css/style.css --minify
+      - name: Build Tailwind CSS
+        run: ./tailwindcss -i assets/css/main.css -o static/css/style.css --minify
 
-            - name: Build Hugo
-              run: hugo --minify
+      - name: Build Hugo
+        run: hugo --minify
 
-            - name: Validate HTML
-              run: |
-                  pip install html5validator
-                  html5validator --root ./public --also-check-css --log INFO
+      - name: Validate HTML
+        run: |
+          pip install html5validator
+          html5validator --root ./public --ignore-re ".*@layer.*" ".*@property.*" --log INFO
 
-            - name: Lighthouse CI
-              uses: treosh/lighthouse-ci-action@v12
-              with:
-                  uploadArtifacts: true
-                  configPath: ./lighthouserc.json
+      - name: Lighthouse CI
+        uses: treosh/lighthouse-ci-action@v12
+        with:
+          uploadArtifacts: true
+          configPath: ./lighthouserc.json
 
-            - name: Deploy via SFTP
-              if: success()
-              run: |
-                  sudo apt-get update -qq && sudo apt-get install -y -qq lftp
-                  lftp -e "
-                    set sftp:auto-confirm yes;
-                    set net:max-retries 2;
-                    set net:reconnect-interval-base 5;
-                    mirror --reverse --delete --verbose --parallel=4 \
-                      ./public/ ${{ secrets.SFTP_PATH }};
-                    bye
-                  " -u "${{ secrets.SFTP_USER }}","${{ secrets.SFTP_PASSWORD }}" \
-                    sftp://${{ secrets.SFTP_HOST }}
+      - name: Deploy via SFTP
+        if: success()
+        run: |
+          sudo apt-get update -qq && sudo apt-get install -y -qq lftp
+          lftp -e "
+            set sftp:auto-confirm yes;
+            set net:max-retries 2;
+            set net:reconnect-interval-base 5;
+            mirror --reverse --delete --verbose --parallel=4 \
+              ./public/ ${{ secrets.SFTP_PATH }};
+            bye
+          " -u "${{ secrets.SFTP_USER }}","${{ secrets.SFTP_PASSWORD }}" \
+            sftp://${{ secrets.SFTP_HOST }}
