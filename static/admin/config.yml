@@ -51,55 +51,61 @@ collections:
   # --- Documentos (data file) ---
   - name: "documentos"
     label: "Documentos"
-    file: "data/documentos.yaml"
     description: "Gerir documentos públicos (PDFs)"
-    fields:
-      - label: "Categorias"
-        name: "categorias"
-        widget: "list"
+    files:
+      - label: "Documentos"
+        name: "documentos"
+        file: "data/documentos.yaml"
         fields:
-          - { label: "Nome da Categoria", name: "nome", widget: "string" }
-          - { label: "Slug", name: "slug", widget: "string" }
-          - label: "Documentos"
-            name: "documentos"
+          - label: "Categorias"
+            name: "categorias"
             widget: "list"
             fields:
-              - { label: "Título", name: "titulo", widget: "string" }
-              - {
-                  label: "Ficheiro (PDF)",
-                  name: "ficheiro",
-                  widget: "file",
-                  media_folder: "/static/documentos",
-                  public_folder: "/documentos",
-                }
-              - {
-                  label: "Data",
-                  name: "data",
-                  widget: "datetime",
-                  format: "YYYY-MM-DD",
-                  date_format: "DD/MM/YYYY",
-                  time_format: false,
-                }
+              - { label: "Nome da Categoria", name: "nome", widget: "string" }
+              - { label: "Slug", name: "slug", widget: "string" }
+              - label: "Documentos"
+                name: "documentos"
+                widget: "list"
+                fields:
+                  - { label: "Título", name: "titulo", widget: "string" }
+                  - {
+                      label: "Ficheiro (PDF)",
+                      name: "ficheiro",
+                      widget: "file",
+                      media_folder: "/static/documentos",
+                      public_folder: "/documentos",
+                    }
+                  - {
+                      label: "Data",
+                      name: "data",
+                      widget: "datetime",
+                      format: "YYYY-MM-DD",
+                      date_format: "DD/MM/YYYY",
+                      time_format: false,
+                    }
 
   # --- Projectos (data file) ---
   - name: "projectos"
     label: "Projectos"
-    file: "data/projectos.yaml"
     description: "Gerir projectos da ARPILF"
-    fields:
+    files:
       - label: "Projectos"
         name: "projectos"
-        widget: "list"
+        file: "data/projectos.yaml"
         fields:
-          - { label: "Título", name: "titulo", widget: "string" }
-          - { label: "Descrição", name: "descricao", widget: "text" }
-          - {
-              label: "Ficheiro (PDF)",
-              name: "ficheiro",
-              widget: "file",
-              media_folder: "/static/documentos/projectos",
-              public_folder: "/documentos/projectos",
-            }
+          - label: "Projectos"
+            name: "projectos"
+            widget: "list"
+            fields:
+              - { label: "Título", name: "titulo", widget: "string" }
+              - { label: "Descrição", name: "descricao", widget: "text" }
+              - {
+                  label: "Ficheiro (PDF)",
+                  name: "ficheiro",
+                  widget: "file",
+                  media_folder: "/static/documentos/projectos",
+                  public_folder: "/documentos/projectos",
+                }
 
   # --- Páginas estáticas ---
   - name: "paginas"
