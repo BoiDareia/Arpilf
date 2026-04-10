@@ -1,0 +1,134 @@
+backend:
+  name: github
+  repo: BoiDareia/Arpilf
+  branch: main
+  base_url: https://arpilf.pt
+  auth_endpoint: /oauth
+
+# Media / file uploads
+media_folder: "static/images/noticias"
+public_folder: "/images/noticias"
+
+locale: "pt"
+
+slug:
+  encoding: "ascii"
+  clean_accents: true
+
+collections:
+  # --- Notícias ---
+  - name: "noticias"
+    label: "Notícias"
+    folder: "content/noticias"
+    create: true
+    slug: "{{slug}}"
+    filter: { field: "title", pattern: "^(?!Notícias$)" }
+    fields:
+      - { label: "Título", name: "title", widget: "string" }
+      - {
+          label: "Data",
+          name: "date",
+          widget: "datetime",
+          format: "YYYY-MM-DD",
+          date_format: "DD/MM/YYYY",
+          time_format: false,
+        }
+      - { label: "Descrição", name: "description", widget: "text" }
+      - { label: "Imagem", name: "image", widget: "image", required: false }
+      - label: "Tags"
+        name: "tags"
+        widget: "select"
+        multiple: true
+        options:
+          - { label: "Eventos", value: "eventos" }
+          - { label: "Comunidade", value: "comunidade" }
+          - { label: "Saúde", value: "saude" }
+          - { label: "Formação", value: "formacao" }
+          - { label: "Voluntariado", value: "voluntariado" }
+      - { label: "Rascunho", name: "draft", widget: "boolean", default: false }
+      - { label: "Conteúdo", name: "body", widget: "markdown" }
+
+  # --- Documentos (data file) ---
+  - name: "documentos"
+    label: "Documentos"
+    file: "data/documentos.yaml"
+    description: "Gerir documentos públicos (PDFs)"
+    fields:
+      - label: "Categorias"
+        name: "categorias"
+        widget: "list"
+        fields:
+          - { label: "Nome da Categoria", name: "nome", widget: "string" }
+          - { label: "Slug", name: "slug", widget: "string" }
+          - label: "Documentos"
+            name: "documentos"
+            widget: "list"
+            fields:
+              - { label: "Título", name: "titulo", widget: "string" }
+              - {
+                  label: "Ficheiro (PDF)",
+                  name: "ficheiro",
+                  widget: "file",
+                  media_folder: "/static/documentos",
+                  public_folder: "/documentos",
+                }
+              - {
+                  label: "Data",
+                  name: "data",
+                  widget: "datetime",
+                  format: "YYYY-MM-DD",
+                  date_format: "DD/MM/YYYY",
+                  time_format: false,
+                }
+
+  # --- Projectos (data file) ---
+  - name: "projectos"
+    label: "Projectos"
+    file: "data/projectos.yaml"
+    description: "Gerir projectos da ARPILF"
+    fields:
+      - label: "Projectos"
+        name: "projectos"
+        widget: "list"
+        fields:
+          - { label: "Título", name: "titulo", widget: "string" }
+          - { label: "Descrição", name: "descricao", widget: "text" }
+          - {
+              label: "Ficheiro (PDF)",
+              name: "ficheiro",
+              widget: "file",
+              media_folder: "/static/documentos/projectos",
+              public_folder: "/documentos/projectos",
+            }
+
+  # --- Páginas estáticas ---
+  - name: "paginas"
+    label: "Páginas"
+    files:
+      - label: "Página Inicial"
+        name: "inicio"
+        file: "content/_index.md"
+        fields:
+          - { label: "Título", name: "title", widget: "string" }
+          - { label: "Descrição", name: "description", widget: "text" }
+
+      - label: "Sobre Nós"
+        name: "sobre"
+        file: "content/sobre/_index.md"
+        fields:
+          - { label: "Título", name: "title", widget: "string" }
+          - { label: "Descrição", name: "description", widget: "text" }
+
+      - label: "Serviços"
+        name: "servicos"
+        file: "content/servicos/_index.md"
+        fields:
+          - { label: "Título", name: "title", widget: "string" }
+          - { label: "Descrição", name: "description", widget: "text" }
+
+      - label: "Donativos"
+        name: "donativos"
+        file: "content/donativos/_index.md"
+        fields:
+          - { label: "Título", name: "title", widget: "string" }
+          - { label: "Descrição", name: "description", widget: "text" }
