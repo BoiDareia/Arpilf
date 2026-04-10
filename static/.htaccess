@@ -24,12 +24,17 @@ RewriteRule ^(index\.php|component|administrator).*$ / [R=301,L]
   Header always set X-Content-Type-Options "nosniff"
   Header always set X-Frame-Options "SAMEORIGIN"
   Header always set Strict-Transport-Security "max-age=31536000; includeSubDomains"
-  Header always set Content-Security-Policy "default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://unpkg.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://unpkg.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://unpkg.com; frame-src https://www.google.com https://maps.google.com; connect-src 'self' https://api.github.com https://github.com;"
+  Header always set Content-Security-Policy "default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://unpkg.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://unpkg.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: blob: https://*.googleapis.com https://*.gstatic.com https://unpkg.com https://avatars.githubusercontent.com https://raw.githubusercontent.com; frame-src https://www.google.com https://maps.google.com; connect-src 'self' https://api.github.com https://github.com https://uploads.github.com https://raw.githubusercontent.com;"
 </IfModule>
 
 # MIME types
 <IfModule mod_mime.c>
   AddType application/x-yaml .yml .yaml
+  AddType application/vnd.openxmlformats-officedocument.wordprocessingml.document .docx
+  AddType application/vnd.openxmlformats-officedocument.spreadsheetml.sheet .xlsx
+  AddType application/msword .doc
+  AddType application/vnd.ms-excel .xls
+  AddType text/plain .txt
 </IfModule>
 
 # Compressão
