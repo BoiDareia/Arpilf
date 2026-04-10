@@ -1,0 +1,45 @@
+# Forçar HTTPS
+RewriteEngine On
+RewriteCond %{HTTPS} off
+RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+# Redirects Joomla → novo site
+RewriteRule ^index\.php/component/content/article.*$ / [R=301,L]
+RewriteRule ^images/Publicacao_contas_(.*)\.pdf$ /documentos/relatorios-financeiros/Publicacao_contas_$1.pdf [R=301,L]
+RewriteRule ^images/Regulamento(.*)\.pdf$ /documentos/regulamentos/Regulamento$1.pdf [R=301,L]
+RewriteRule ^images/estatutos_arpilf\.pdf$ /documentos/estatutos/estatutos_arpilf.pdf [R=301,L]
+RewriteRule ^images/FichaCentroDia\.pdf$ /documentos/fichas-inscricao/FichaCentroDia.pdf [R=301,L]
+RewriteRule ^images/FichaInscricao\.pdf$ /documentos/fichas-inscricao/FichaInscricao.pdf [R=301,L]
+RewriteRule ^images/ProteccaoDeDados\.pdf$ /documentos/outros/ProteccaoDeDados.pdf [R=301,L]
+RewriteRule ^site2020/(.*)$ /$1 [R=301,L]
+RewriteRule ^stg/(.*)$ /$1 [R=301,L]
+
+# Fallback: URLs antigos sem correspondência → homepage
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^(index\.php|component|administrator).*$ / [R=301,L]
+
+# Cabeçalhos de segurança
+<IfModule mod_headers.c>
+  Header always set X-Content-Type-Options "nosniff"
+  Header always set X-Frame-Options "SAMEORIGIN"
+  Header always set Strict-Transport-Security "max-age=31536000; includeSubDomains"
+  Header always set Content-Security-Policy "default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https://*.googleapis.com https://*.gstatic.com; frame-src https://www.google.com https://maps.google.com;"
+</IfModule>
+
+# Compressão
+<IfModule mod_deflate.c>
+  AddOutputFilterByType DEFLATE text/html text/css application/javascript application/json
+</IfModule>
+
+# Cache estático
+<IfModule mod_expires.c>
+  ExpiresActive On
+  ExpiresByType text/html "access plus 1 hour"
+  ExpiresByType text/css "access plus 1 month"
+  ExpiresByType application/javascript "access plus 1 month"
+  ExpiresByType image/svg+xml "access plus 1 month"
+  ExpiresByType image/jpeg "access plus 1 month"
+  ExpiresByType image/png "access plus 1 month"
+  ExpiresByType application/pdf "access plus 1 month"
+</IfModule>

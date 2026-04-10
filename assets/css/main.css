@@ -1,0 +1,10 @@
+@import "tailwindcss";
+
+@source "../../layouts/**/*.html";
+
+@theme {
+  --color-primary: #003366;
+  --color-accent: #fecb00;
+  --color-secondary: #f8f9fa;
+  --font-size-base: 18px;
+}

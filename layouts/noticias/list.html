@@ -1,0 +1,24 @@
+{{ define "main" }}
+<section class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-16">
+
+  <!-- Header with logo -->
+  <header class="text-center mb-12">
+    <img src="{{ "images/logo2020.png" | relURL }}" alt="Logo ARPILF" class="mx-auto h-28 w-auto mb-6">
+    <h1 class="text-4xl font-extrabold text-primary mb-4">{{ .Title }}</h1>
+    <p class="text-lg text-gray-600 max-w-2xl mx-auto leading-relaxed">
+      Acompanhe as últimas novidades e eventos da ARPILF.
+    </p>
+  </header>
+
+  {{ $pages := .Pages.ByDate.Reverse }}
+  {{ if $pages }}
+  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+    {{ range $pages }}
+      {{ partial "news-card.html" . }}
+    {{ end }}
+  </div>
+  {{ else }}
+  <p class="text-gray-600 text-lg text-center">De momento não existem notícias publicadas.</p>
+  {{ end }}
+</section>
+{{ end }}

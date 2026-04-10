@@ -1,0 +1,140 @@
+{{ define "main" }}
+<article class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-16">
+
+  <!-- Header with logo -->
+  <header class="text-center mb-12">
+    <img src="{{ "images/logo2020.png" | relURL }}" alt="Logo ARPILF" class="mx-auto h-28 w-auto mb-6">
+    <h1 class="text-4xl font-extrabold text-primary mb-4">{{ .Title }}</h1>
+    <p class="text-lg text-gray-600 max-w-3xl mx-auto leading-relaxed">
+      A ARPILF disponibiliza quatro respostas sociais dirigidas à população idosa e à comunidade, sempre com o objetivo de promover o bem-estar, a autonomia e a qualidade de vida dos nossos utentes.
+    </p>
+  </header>
+
+  <!-- Centro de Dia -->
+  <section class="bg-white rounded-xl shadow-md border border-gray-100 p-8 mb-10">
+    <h2 class="text-3xl font-bold text-primary mb-1">
+      <span class="border-b-2 border-accent inline-block pb-1">🏠 Centro de Dia</span>
+    </h2>
+    <p class="text-gray-700 leading-relaxed mt-4 mb-6">
+      O Centro de Dia é uma resposta social que proporciona um conjunto de serviços e atividades durante o dia, permitindo que os idosos mantenham a sua vida na comunidade e no seio da família.
+    </p>
+
+    <h3 class="text-lg font-semibold text-primary mb-3">O que oferecemos</h3>
+    <ul class="grid grid-cols-1 md:grid-cols-2 gap-3 text-gray-700">
+      <li class="flex items-start gap-2"><span class="text-accent font-bold">✓</span> Refeições equilibradas (almoço e lanche)</li>
+      <li class="flex items-start gap-2"><span class="text-accent font-bold">✓</span> Atividades de estimulação cognitiva e física</li>
+      <li class="flex items-start gap-2"><span class="text-accent font-bold">✓</span> Atividades recreativas e culturais</li>
+      <li class="flex items-start gap-2"><span class="text-accent font-bold">✓</span> Apoio psicossocial</li>
+      <li class="flex items-start gap-2"><span class="text-accent font-bold">✓</span> Cuidados de higiene e conforto</li>
+      <li class="flex items-start gap-2"><span class="text-accent font-bold">✓</span> Transporte de e para o Centro de Dia</li>
+    </ul>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-6">
+      <div class="bg-gray-50 p-4 rounded-lg">
+        <h4 class="font-semibold text-primary text-sm mb-1">🕐 Horário de funcionamento</h4>
+        <p class="text-gray-700 text-sm">De segunda a sexta-feira, das 9h00 às 17h30.</p>
+      </div>
+      <div class="bg-gray-50 p-4 rounded-lg">
+        <h4 class="font-semibold text-primary text-sm mb-1">👥 A quem se destina</h4>
+        <p class="text-gray-700 text-sm">Pessoas com 65 ou mais anos que necessitem de acompanhamento durante o dia, promovendo a socialização e prevenindo o isolamento.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Serviço de Apoio Domiciliário (SAD) -->
+  <section class="bg-white rounded-xl shadow-md border border-gray-100 p-8 mb-10">
+    <h2 class="text-3xl font-bold text-primary mb-1">
+      <span class="border-b-2 border-accent inline-block pb-1">🤝 Apoio Domiciliário (SAD)</span>
+    </h2>
+    <p class="text-gray-700 leading-relaxed mt-4 mb-6">
+      O Serviço de Apoio Domiciliário presta cuidados individualizados no domicílio do utente, permitindo que este permaneça no seu ambiente familiar com a assistência necessária.
+    </p>
+
+    <h3 class="text-lg font-semibold text-primary mb-3">O que oferecemos</h3>
+    <ul class="grid grid-cols-1 md:grid-cols-2 gap-3 text-gray-700">
+      <li class="flex items-start gap-2"><span class="text-accent font-bold">✓</span> Cuidados de higiene pessoal</li>
+      <li class="flex items-start gap-2"><span class="text-accent font-bold">✓</span> Fornecimento e apoio nas refeições</li>
+      <li class="flex items-start gap-2"><span class="text-accent font-bold">✓</span> Tratamento de roupa</li>
+      <li class="flex items-start gap-2"><span class="text-accent font-bold">✓</span> Higiene e limpeza habitacional</li>
+      <li class="flex items-start gap-2"><span class="text-accent font-bold">✓</span> Acompanhamento a consultas médicas</li>
+      <li class="flex items-start gap-2"><span class="text-accent font-bold">✓</span> Apoio nas atividades da vida diária</li>
+    </ul>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-6">
+      <div class="bg-gray-50 p-4 rounded-lg">
+        <h4 class="font-semibold text-primary text-sm mb-1">🕐 Horário de funcionamento</h4>
+        <p class="text-gray-700 text-sm">De segunda a sexta-feira, das 8h00 às 17h00. Serviço de refeições disponível ao fim de semana mediante acordo prévio.</p>
+      </div>
+      <div class="bg-gray-50 p-4 rounded-lg">
+        <h4 class="font-semibold text-primary text-sm mb-1">👥 A quem se destina</h4>
+        <p class="text-gray-700 text-sm">Pessoas idosas, pessoas com deficiência ou em situação de dependência temporária ou permanente que necessitem de apoio no seu domicílio.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Estrutura Residencial para Pessoas Idosas (ERPI) -->
+  <section class="bg-white rounded-xl shadow-md border border-gray-100 p-8 mb-10">
+    <h2 class="text-3xl font-bold text-primary mb-1">
+      <span class="border-b-2 border-accent inline-block pb-1">🛏️ Estrutura Residencial (ERPI)</span>
+    </h2>
+    <p class="text-gray-700 leading-relaxed mt-4 mb-6">
+      A Estrutura Residencial para Pessoas Idosas proporciona alojamento permanente e cuidados continuados a idosos que, por razões de saúde, isolamento ou falta de apoio familiar, não possam permanecer no seu domicílio.
+    </p>
+
+    <h3 class="text-lg font-semibold text-primary mb-3">O que oferecemos</h3>
+    <ul class="grid grid-cols-1 md:grid-cols-2 gap-3 text-gray-700">
+      <li class="flex items-start gap-2"><span class="text-accent font-bold">✓</span> Alojamento em quartos individuais ou partilhados</li>
+      <li class="flex items-start gap-2"><span class="text-accent font-bold">✓</span> Alimentação completa (4 refeições diárias)</li>
+      <li class="flex items-start gap-2"><span class="text-accent font-bold">✓</span> Cuidados de higiene pessoal</li>
+      <li class="flex items-start gap-2"><span class="text-accent font-bold">✓</span> Cuidados de saúde e enfermagem</li>
+      <li class="flex items-start gap-2"><span class="text-accent font-bold">✓</span> Atividades de animação sociocultural</li>
+      <li class="flex items-start gap-2"><span class="text-accent font-bold">✓</span> Apoio psicossocial ao utente e à família</li>
+      <li class="flex items-start gap-2"><span class="text-accent font-bold">✓</span> Acompanhamento médico regular</li>
+    </ul>
+
+    <div class="mt-6">
+      <div class="bg-gray-50 p-4 rounded-lg">
+        <h4 class="font-semibold text-primary text-sm mb-1">👥 A quem se destina</h4>
+        <p class="text-gray-700 text-sm">Pessoas com 65 ou mais anos que necessitem de apoio permanente nas atividades da vida diária, ou que se encontrem em situação de isolamento social.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Cantina Social -->
+  <section class="bg-white rounded-xl shadow-md border border-gray-100 p-8 mb-10">
+    <h2 class="text-3xl font-bold text-primary mb-1">
+      <span class="border-b-2 border-accent inline-block pb-1">🍽️ Cantina Social</span>
+    </h2>
+    <p class="text-gray-700 leading-relaxed mt-4 mb-6">
+      A Cantina Social é uma resposta da ARPILF dirigida a pessoas e famílias em situação de vulnerabilidade económica, garantindo o acesso a refeições diárias equilibradas.
+    </p>
+
+    <h3 class="text-lg font-semibold text-primary mb-3">O que oferecemos</h3>
+    <ul class="grid grid-cols-1 md:grid-cols-2 gap-3 text-gray-700">
+      <li class="flex items-start gap-2"><span class="text-accent font-bold">✓</span> Refeições diárias (almoço)</li>
+      <li class="flex items-start gap-2"><span class="text-accent font-bold">✓</span> Alimentação equilibrada e variada</li>
+      <li class="flex items-start gap-2"><span class="text-accent font-bold">✓</span> Ambiente acolhedor e digno</li>
+    </ul>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-6">
+      <div class="bg-gray-50 p-4 rounded-lg">
+        <h4 class="font-semibold text-primary text-sm mb-1">🕐 Horário de funcionamento</h4>
+        <p class="text-gray-700 text-sm">De segunda a sexta-feira, das 12h00 às 13h30.</p>
+      </div>
+      <div class="bg-gray-50 p-4 rounded-lg">
+        <h4 class="font-semibold text-primary text-sm mb-1">👥 A quem se destina</h4>
+        <p class="text-gray-700 text-sm">Pessoas e famílias em situação de carência económica, sinalizadas pelos serviços sociais ou que se dirijam diretamente à ARPILF para avaliação da sua situação.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <div class="text-center mt-12">
+    <p class="text-gray-700 text-lg mb-6">Para mais informações sobre qualquer um dos nossos serviços, não hesite em contactar-nos.</p>
+    <a href="{{ "contactos/" | relURL }}" class="inline-block bg-primary text-white font-semibold px-8 py-3 rounded-lg hover:bg-accent hover:text-primary transition-colors duration-200">
+      Contacte-nos
+    </a>
+  </div>
+
+</article>
+{{ end }}

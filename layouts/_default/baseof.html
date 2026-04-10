@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+  {{ block "head" . }}
+    {{ partial "head.html" . }}
+  {{ end }}
+</head>
+<body class="bg-secondary text-primary font-sans text-base min-h-screen flex flex-col">
+  {{ partial "nav.html" . }}
+
+  <main id="main-content" class="flex-1">
+    {{ block "main" . }}
+    {{ end }}
+  </main>
+
+  {{ partial "footer.html" . }}
+
+  {{ partial "chatbot.html" . }}
+
+  <script src="{{ "js/main.js" | relURL }}" defer></script>
+</body>
+</html>

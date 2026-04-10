@@ -1,0 +1,137 @@
+{{ define "main" }}
+<article class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-16">
+
+  <!-- Header with logo -->
+  <header class="text-center mb-10">
+    <img src="{{ "images/logo2020.png" | relURL }}" alt="Logo ARPILF" class="mx-auto h-28 w-auto mb-6">
+    <h1 class="text-4xl font-extrabold text-primary mb-4">Faça o Seu Donativo</h1>
+    <p class="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+      A ARPILF é uma IPSS que depende do apoio da comunidade para continuar a prestar serviços de qualidade. O seu contributo faz a diferença na vida de muitas pessoas idosas.
+    </p>
+  </header>
+
+  <!-- Transferência Bancária -->
+  <section class="bg-primary/5 border border-primary/20 rounded-xl p-6 md:p-8 mb-6 shadow-sm">
+    <h2 class="text-2xl font-bold text-primary mb-4 flex items-center gap-2">
+      🏦 Transferência Bancária
+    </h2>
+    <p class="text-gray-700 leading-relaxed mb-4">
+      Pode fazer o seu donativo por transferência bancária para a conta da ARPILF:
+    </p>
+    <div class="mb-4">
+      <span class="text-sm font-semibold text-gray-500 uppercase tracking-wide">IBAN</span>
+      <div class="font-mono text-lg font-bold text-primary bg-white px-4 py-2.5 rounded-lg border border-primary/10 inline-block mt-1">
+        [IBAN]
+      </div>
+    </div>
+    <div class="mb-4">
+      <span class="text-sm font-semibold text-gray-500 uppercase tracking-wide">Titular</span>
+      <p class="font-semibold text-gray-800 mt-1">ARPILF — Associação de Reformados, Pensionistas e Idosos</p>
+    </div>
+    <p class="text-gray-600 text-sm">
+      Após efetuar a transferência, agradecemos que nos envie o comprovativo por email para
+      <span class="font-semibold text-primary">arpilf@arpilf.pt</span>
+      para que possamos emitir o respetivo recibo de donativo.
+    </p>
+  </section>
+
+  <!-- MB Way / Multibanco -->
+  <section class="bg-gray-50 border border-gray-200 rounded-xl p-6 mb-12">
+    <div class="flex items-center gap-3">
+      <span class="text-2xl">📱</span>
+      <div>
+        <h2 class="text-xl font-bold text-gray-400 flex items-center gap-2">
+          MB Way / Multibanco
+          <span class="text-xs font-semibold bg-gray-200 text-gray-500 px-2 py-0.5 rounded-full italic">Em breve</span>
+        </h2>
+        <p class="text-gray-500 text-sm mt-1">Estamos a trabalhar para disponibilizar estes métodos de pagamento. Entretanto, utilize a transferência bancária.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Benefícios Fiscais -->
+  <section class="mb-12">
+    <h2 class="text-2xl font-bold text-primary mb-2 border-b border-gray-200 pb-2">Benefícios Fiscais</h2>
+    <p class="text-gray-600 mb-6">Os donativos a IPSS conferem benefícios fiscais significativos, nos termos do Estatuto dos Benefícios Fiscais e do Estatuto do Mecenato.</p>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-10">
+      <!-- IRS -->
+      <div class="bg-white rounded-xl border border-gray-100 shadow-sm p-6 text-center">
+        <span class="text-sm font-semibold text-gray-500 uppercase tracking-wide">Para particulares</span>
+        <span class="text-4xl font-extrabold text-accent block my-3">25%</span>
+        <h3 class="text-lg font-bold text-primary mb-2">Dedução ao IRS</h3>
+        <p class="text-gray-600 text-sm leading-relaxed">
+          Os donativos em dinheiro são dedutíveis à coleta de IRS em 25% do valor doado, sem limite. A dedução é automática quando a ARPILF comunica os donativos à Autoridade Tributária.
+        </p>
+      </div>
+      <!-- IRC -->
+      <div class="bg-white rounded-xl border border-gray-100 shadow-sm p-6 text-center">
+        <span class="text-sm font-semibold text-gray-500 uppercase tracking-wide">Para empresas</span>
+        <span class="text-4xl font-extrabold text-accent block my-3">140%</span>
+        <h3 class="text-lg font-bold text-primary mb-2">Majoração ao IRC</h3>
+        <p class="text-gray-600 text-sm leading-relaxed">
+          Os donativos são considerados custos do exercício, majorados em 40%. Um donativo de 1.000 € permite deduzir 1.400 € ao lucro tributável.
+        </p>
+      </div>
+    </div>
+
+    <!-- Como funciona -->
+    <h3 class="text-xl font-bold text-primary mb-6">Como funciona</h3>
+    <div class="space-y-4">
+      <div class="flex items-start gap-4">
+        <span class="w-8 h-8 rounded-full bg-primary text-white flex items-center justify-center font-bold text-sm flex-shrink-0">1</span>
+        <p class="text-gray-700 leading-relaxed pt-1">Efetue o seu donativo por transferência bancária.</p>
+      </div>
+      <div class="flex items-start gap-4">
+        <span class="w-8 h-8 rounded-full bg-primary text-white flex items-center justify-center font-bold text-sm flex-shrink-0">2</span>
+        <p class="text-gray-700 leading-relaxed pt-1">Envie o comprovativo para <span class="font-semibold text-primary">arpilf@arpilf.pt</span>.</p>
+      </div>
+      <div class="flex items-start gap-4">
+        <span class="w-8 h-8 rounded-full bg-primary text-white flex items-center justify-center font-bold text-sm flex-shrink-0">3</span>
+        <p class="text-gray-700 leading-relaxed pt-1">A ARPILF emite um recibo de donativo.</p>
+      </div>
+      <div class="flex items-start gap-4">
+        <span class="w-8 h-8 rounded-full bg-primary text-white flex items-center justify-center font-bold text-sm flex-shrink-0">4</span>
+        <p class="text-gray-700 leading-relaxed pt-1">A ARPILF comunica o donativo à Autoridade Tributária até ao final de fevereiro do ano seguinte.</p>
+      </div>
+      <div class="flex items-start gap-4">
+        <span class="w-8 h-8 rounded-full bg-primary text-white flex items-center justify-center font-bold text-sm flex-shrink-0">5</span>
+        <p class="text-gray-700 leading-relaxed pt-1">O valor aparece automaticamente na sua declaração de IRS pré-preenchida.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Outras Formas de Ajudar -->
+  <section class="mb-12">
+    <h2 class="text-2xl font-bold text-primary mb-6 border-b border-gray-200 pb-2">Outras Formas de Ajudar</h2>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+      <div class="bg-white rounded-xl border border-gray-100 shadow-sm p-6 hover:shadow-md hover:border-primary/20 transition-all duration-200">
+        <span class="text-3xl mb-3 block">🤝</span>
+        <h3 class="text-lg font-bold text-primary mb-2">Voluntariado</h3>
+        <p class="text-gray-600 text-sm leading-relaxed">Dedique algum do seu tempo aos nossos utentes. Contacte-nos para saber como participar.</p>
+      </div>
+      <div class="bg-white rounded-xl border border-gray-100 shadow-sm p-6 hover:shadow-md hover:border-primary/20 transition-all duration-200">
+        <span class="text-3xl mb-3 block">📦</span>
+        <h3 class="text-lg font-bold text-primary mb-2">Doação de Bens</h3>
+        <p class="text-gray-600 text-sm leading-relaxed">Aceitamos doações de bens em bom estado: roupa, mobiliário e equipamentos.</p>
+      </div>
+      <div class="bg-white rounded-xl border border-gray-100 shadow-sm p-6 hover:shadow-md hover:border-primary/20 transition-all duration-200">
+        <span class="text-3xl mb-3 block">📋</span>
+        <h3 class="text-lg font-bold text-primary mb-2">Consignação de IRS</h3>
+        <p class="text-gray-600 text-sm leading-relaxed">Consigne 0,5% do seu IRS à ARPILF sem qualquer custo, indicando o nosso NIF na declaração.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <div class="text-center bg-primary/5 rounded-xl p-8">
+    <p class="text-gray-700 text-lg mb-2">Para qualquer questão sobre donativos, não hesite em contactar-nos.</p>
+    <p class="text-gray-500 mb-6">Telefone: <span class="font-semibold text-primary">968 807 673</span></p>
+    <a href="{{ "contactos/" | relURL }}" class="inline-block bg-primary text-white font-semibold px-8 py-3 rounded-lg hover:bg-accent hover:text-primary transition-colors duration-200">
+      Contacte-nos
+    </a>
+    <p class="text-primary font-semibold text-lg mt-6">Obrigado pelo seu apoio. Juntos, fazemos a diferença.</p>
+  </div>
+
+</article>
+{{ end }}

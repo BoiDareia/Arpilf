@@ -1,0 +1,119 @@
+{{ define "main" }}
+<article class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-16">
+
+  <!-- Header with logo -->
+  <header class="text-center mb-12">
+    <img src="{{ "images/logo2020.png" | relURL }}" alt="Logo ARPILF" class="mx-auto h-28 w-auto mb-6">
+    <h1 class="text-4xl font-extrabold text-primary mb-4">{{ .Title }}</h1>
+    <p class="text-lg text-gray-600 max-w-2xl mx-auto leading-relaxed">{{ .Description }}</p>
+  </header>
+
+  <!-- A Nossa História -->
+  <section class="mb-12">
+    <h2 class="text-2xl font-semibold text-primary mt-10 mb-4 border-b border-gray-200 pb-2">A Nossa História</h2>
+    <div class="text-gray-700 leading-relaxed space-y-4">
+      <p>
+        A ARPILF — Associação de Reformados, Pensionistas e Idosos — foi fundada com o propósito de dar resposta às necessidades da população idosa da comunidade local. Desde a sua criação, a associação tem vindo a crescer e a diversificar as suas respostas sociais, sempre com o foco no bem-estar e na dignidade dos seus utentes.
+      </p>
+      <p>
+        Ao longo dos anos, a ARPILF consolidou-se como uma referência no apoio à terceira idade, desenvolvendo serviços que vão desde o acompanhamento diário no Centro de Dia até ao apoio domiciliário e à estrutura residencial para pessoas idosas.
+      </p>
+    </div>
+  </section>
+
+  <!-- A Nossa Missão -->
+  <section class="mb-12">
+    <h2 class="text-2xl font-semibold text-primary mt-10 mb-4 border-b border-gray-200 pb-2">A Nossa Missão</h2>
+    <p class="text-gray-700 leading-relaxed mb-6">
+      A missão da ARPILF é promover a qualidade de vida das pessoas idosas, proporcionando-lhes serviços de excelência que respeitem a sua individualidade, autonomia e dignidade. Trabalhamos diariamente para:
+    </p>
+    <ul class="list-disc list-inside space-y-2 ml-4 text-gray-700 leading-relaxed">
+      <li>Combater o isolamento social dos idosos</li>
+      <li>Garantir cuidados de saúde e bem-estar adequados</li>
+      <li>Promover a participação ativa dos idosos na vida comunitária</li>
+      <li>Apoiar as famílias no cuidado aos seus familiares idosos</li>
+    </ul>
+  </section>
+
+  <!-- Os Nossos Valores -->
+  <section class="mb-12">
+    <h2 class="text-2xl font-semibold text-primary mt-10 mb-6 border-b border-gray-200 pb-2">Os Nossos Valores</h2>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+
+      <!-- Respeito -->
+      <div class="bg-white p-6 rounded-lg shadow-sm border border-gray-100">
+        <h3 class="text-lg font-bold text-primary mb-2">🤝 Respeito</h3>
+        <p class="text-gray-700 leading-relaxed">Valorizamos cada pessoa na sua individualidade, tratando todos com dignidade e consideração.</p>
+      </div>
+
+      <!-- Solidariedade -->
+      <div class="bg-white p-6 rounded-lg shadow-sm border border-gray-100">
+        <h3 class="text-lg font-bold text-primary mb-2">❤️ Solidariedade</h3>
+        <p class="text-gray-700 leading-relaxed">Acreditamos na entreajuda e no compromisso com os mais vulneráveis da nossa comunidade.</p>
+      </div>
+
+      <!-- Transparência -->
+      <div class="bg-white p-6 rounded-lg shadow-sm border border-gray-100">
+        <h3 class="text-lg font-bold text-primary mb-2">🔍 Transparência</h3>
+        <p class="text-gray-700 leading-relaxed">Gerimos os nossos recursos de forma responsável e aberta, prestando contas à comunidade.</p>
+      </div>
+
+      <!-- Qualidade -->
+      <div class="bg-white p-6 rounded-lg shadow-sm border border-gray-100">
+        <h3 class="text-lg font-bold text-primary mb-2">⭐ Qualidade</h3>
+        <p class="text-gray-700 leading-relaxed">Procuramos a melhoria contínua dos nossos serviços, investindo na formação dos nossos colaboradores.</p>
+      </div>
+
+      <!-- Proximidade -->
+      <div class="bg-white p-6 rounded-lg shadow-sm border border-gray-100 md:col-span-2">
+        <h3 class="text-lg font-bold text-primary mb-2">🏠 Proximidade</h3>
+        <p class="text-gray-700 leading-relaxed">Mantemos uma relação próxima e afetuosa com os nossos utentes e as suas famílias.</p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Estatuto de IPSS -->
+  <section class="bg-blue-50 p-8 rounded-xl mt-12">
+    <h2 class="text-2xl font-semibold text-primary mb-4">Estatuto de IPSS</h2>
+    <p class="text-gray-700 leading-relaxed mb-6">
+      A ARPILF é uma <span class="font-bold text-primary">Instituição Particular de Solidariedade Social (IPSS)</span>, reconhecida e registada na Segurança Social. Este estatuto confere à associação um enquadramento legal específico que garante:
+    </p>
+    <div class="space-y-4">
+      <div class="flex items-start gap-3">
+        <span class="text-accent text-xl mt-0.5">✓</span>
+        <div>
+          <span class="font-semibold text-primary">Fins não lucrativos</span>
+          <span class="text-gray-700"> — Todos os recursos são canalizados para o cumprimento da missão social da instituição.</span>
+        </div>
+      </div>
+      <div class="flex items-start gap-3">
+        <span class="text-accent text-xl mt-0.5">✓</span>
+        <div>
+          <span class="font-semibold text-primary">Fiscalização e transparência</span>
+          <span class="text-gray-700"> — A ARPILF está sujeita à tutela e fiscalização da Segurança Social, garantindo a boa gestão dos fundos públicos e privados.</span>
+        </div>
+      </div>
+      <div class="flex items-start gap-3">
+        <span class="text-accent text-xl mt-0.5">✓</span>
+        <div>
+          <span class="font-semibold text-primary">Acordos de cooperação</span>
+          <span class="text-gray-700"> — Enquanto IPSS, a ARPILF celebra acordos de cooperação com a Segurança Social para o financiamento das suas respostas sociais.</span>
+        </div>
+      </div>
+      <div class="flex items-start gap-3">
+        <span class="text-accent text-xl mt-0.5">✓</span>
+        <div>
+          <span class="font-semibold text-primary">Benefícios fiscais</span>
+          <span class="text-gray-700"> — Os donativos feitos à ARPILF são dedutíveis em sede de IRS e IRC, nos termos da legislação em vigor.</span>
+        </div>
+      </div>
+    </div>
+    <p class="text-gray-700 leading-relaxed mt-6">
+      Os estatutos completos da ARPILF estão disponíveis para consulta na nossa
+      <a href="{{ "documentos/" | relURL }}" class="text-primary font-semibold underline hover:text-accent transition-colors duration-200">página de documentos</a>.
+    </p>
+  </section>
+
+</article>
+{{ end }}

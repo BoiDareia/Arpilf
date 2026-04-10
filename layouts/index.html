@@ -1,0 +1,136 @@
+{{ define "main" }}
+
+<!-- Hero Section -->
+<section class="bg-primary text-white py-24 md:py-32 relative overflow-hidden">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
+    <img src="{{ "images/logo2020.png" | relURL }}" alt="Logo ARPILF" class="mx-auto h-24 md:h-32 w-auto mb-8 drop-shadow-lg">
+    <h1 class="text-4xl sm:text-5xl md:text-6xl font-extrabold mb-6 leading-tight">
+      ARPILF — Ao Serviço<br class="hidden sm:block"> da Comunidade
+    </h1>
+    <p class="max-w-3xl mx-auto text-lg md:text-xl text-white/80 leading-relaxed mb-10">
+      A Associação de Reformados, Pensionistas e Idosos tem como missão promover
+      o bem-estar e a qualidade de vida dos idosos, oferecendo respostas sociais
+      de proximidade que valorizam a dignidade, a autonomia e a participação ativa
+      na comunidade.
+    </p>
+    <div class="flex flex-col sm:flex-row gap-4 justify-center">
+      <a href="{{ "servicos/" | relURL }}" class="bg-accent hover:bg-yellow-400 text-primary font-bold text-lg px-8 py-4 rounded-full shadow-lg transition-all duration-200 hover:-translate-y-0.5">
+        Conheça os Nossos Serviços
+      </a>
+      <a href="{{ "contactos/" | relURL }}" class="border-2 border-white text-white hover:bg-white hover:text-primary font-bold text-lg px-8 py-4 rounded-full transition-all duration-200">
+        Contacte-nos
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- Serviços Section -->
+<section class="py-20 bg-white">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center mb-14">
+      <h2 class="text-3xl md:text-4xl font-extrabold text-primary mb-4">Os Nossos Serviços</h2>
+      <p class="text-gray-600 text-lg max-w-2xl mx-auto">Quatro respostas sociais ao serviço da comunidade.</p>
+    </div>
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+
+      <!-- Centro de Dia -->
+      <div class="bg-white rounded-2xl shadow-sm border border-gray-100 p-8 text-center hover:-translate-y-2 hover:shadow-xl transition-all duration-300">
+        <div class="w-16 h-16 rounded-full bg-primary/5 flex items-center justify-center text-3xl mx-auto mb-5" aria-hidden="true">🏠</div>
+        <h3 class="text-xl font-bold text-primary mb-3">Centro de Dia</h3>
+        <p class="text-gray-600 text-sm leading-relaxed">
+          Espaço de convívio, atividades e acompanhamento diário para idosos, promovendo a socialização e o bem-estar.
+        </p>
+      </div>
+
+      <!-- Apoio Domiciliário -->
+      <div class="bg-white rounded-2xl shadow-sm border border-gray-100 p-8 text-center hover:-translate-y-2 hover:shadow-xl transition-all duration-300">
+        <div class="w-16 h-16 rounded-full bg-primary/5 flex items-center justify-center text-3xl mx-auto mb-5" aria-hidden="true">🤝</div>
+        <h3 class="text-xl font-bold text-primary mb-3">Apoio Domiciliário</h3>
+        <p class="text-gray-600 text-sm leading-relaxed">
+          Serviço de Apoio Domiciliário (SAD) com cuidados personalizados no conforto do lar de cada utente.
+        </p>
+      </div>
+
+      <!-- Estrutura Residencial -->
+      <div class="bg-white rounded-2xl shadow-sm border border-gray-100 p-8 text-center hover:-translate-y-2 hover:shadow-xl transition-all duration-300">
+        <div class="w-16 h-16 rounded-full bg-primary/5 flex items-center justify-center text-3xl mx-auto mb-5" aria-hidden="true">🛏️</div>
+        <h3 class="text-xl font-bold text-primary mb-3">Estrutura Residencial</h3>
+        <p class="text-gray-600 text-sm leading-relaxed">
+          Estrutura Residencial para Pessoas Idosas (ERPI) com alojamento, alimentação e cuidados permanentes.
+        </p>
+      </div>
+
+      <!-- Cantina Social -->
+      <div class="bg-white rounded-2xl shadow-sm border border-gray-100 p-8 text-center hover:-translate-y-2 hover:shadow-xl transition-all duration-300">
+        <div class="w-16 h-16 rounded-full bg-primary/5 flex items-center justify-center text-3xl mx-auto mb-5" aria-hidden="true">🍽️</div>
+        <h3 class="text-xl font-bold text-primary mb-3">Cantina Social</h3>
+        <p class="text-gray-600 text-sm leading-relaxed">
+          Refeições diárias a preços acessíveis para a comunidade, garantindo uma alimentação equilibrada e digna.
+        </p>
+      </div>
+
+    </div>
+    <div class="text-center mt-12">
+      <a href="{{ "servicos/" | relURL }}" class="inline-block px-6 py-3 border-2 border-primary text-primary font-semibold rounded-lg hover:bg-primary hover:text-white transition-colors duration-200">
+        Ver Todos os Serviços
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- Últimas Notícias Section -->
+{{ $noticias := where .Site.RegularPages "Section" "noticias" }}
+{{ if gt (len $noticias) 0 }}
+<section class="py-20 bg-gray-50">
+  <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center mb-14">
+      <h2 class="text-3xl md:text-4xl font-extrabold text-primary mb-4">Últimas Notícias</h2>
+      <p class="text-gray-600 text-lg">Acompanhe as novidades e eventos da ARPILF.</p>
+    </div>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+      {{ range first 3 $noticias.ByDate.Reverse }}
+      <article class="flex flex-col bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden group hover:shadow-lg transition-shadow duration-300 {{ if eq (index (seq 3) 0) 0 }}md:col-span-2{{ end }}">
+        <!-- Image area with fallback -->
+        <div class="w-full aspect-video bg-primary/5 relative overflow-hidden">
+          {{ with .Params.image }}
+          <img src="{{ strings.TrimLeft "/" . | relURL }}" alt="{{ $.Title }}" class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
+          {{ else }}
+          <div class="w-full h-full bg-gradient-to-br from-primary/10 to-primary/5 flex items-center justify-center">
+            <svg class="w-16 h-16 text-primary/20" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1m2 13a2 2 0 01-2-2V7m2 13a2 2 0 002-2V9a2 2 0 00-2-2h-2m-4-3H9M7 16h6M7 8h6v4H7V8z"/>
+            </svg>
+          </div>
+          {{ end }}
+        </div>
+        <!-- Content -->
+        <div class="p-6 flex flex-col flex-grow">
+          <time datetime="{{ .Date.Format "2006-01-02" }}" class="text-sm text-gray-500 mb-2 flex items-center gap-1">
+            <svg class="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/>
+            </svg>
+            {{ .Date.Format "2 January 2006" }}
+          </time>
+          <h3 class="text-xl font-bold text-primary mb-3 line-clamp-2">
+            <a href="{{ .Permalink }}" class="hover:text-accent transition-colors duration-200">{{ .Title }}</a>
+          </h3>
+          {{ with .Description }}
+          <p class="text-gray-600 mb-4 flex-grow line-clamp-3">{{ . }}</p>
+          {{ end }}
+          <a href="{{ .Permalink }}" class="text-primary font-semibold hover:text-accent transition-colors duration-200 mt-auto inline-flex items-center gap-1">
+            Ler mais
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+          </a>
+        </div>
+      </article>
+      {{ end }}
+    </div>
+    <div class="text-center mt-12">
+      <a href="{{ "noticias/" | relURL }}" class="inline-block px-6 py-3 border-2 border-primary text-primary font-semibold rounded-lg hover:bg-primary hover:text-white transition-colors duration-200">
+        Ver Todas as Notícias
+      </a>
+    </div>
+  </div>
+</section>
+{{ end }}
+
+{{ end }}

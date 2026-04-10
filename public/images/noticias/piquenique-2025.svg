@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="450" viewBox="0 0 800 450">
+  <defs>
+    <linearGradient id="bg2" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#003366;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#1a5276;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  <rect width="800" height="450" fill="url(#bg2)"/>
+  <!-- Sun icon -->
+  <circle cx="400" cy="160" r="35" fill="#fecb00" opacity="0.9"/>
+  <line x1="400" y1="110" x2="400" y2="95" stroke="#fecb00" stroke-width="4" stroke-linecap="round" opacity="0.7"/>
+  <line x1="400" y1="210" x2="400" y2="225" stroke="#fecb00" stroke-width="4" stroke-linecap="round" opacity="0.7"/>
+  <line x1="350" y1="160" x2="335" y2="160" stroke="#fecb00" stroke-width="4" stroke-linecap="round" opacity="0.7"/>
+  <line x1="450" y1="160" x2="465" y2="160" stroke="#fecb00" stroke-width="4" stroke-linecap="round" opacity="0.7"/>
+  <line x1="365" y1="125" x2="354" y2="114" stroke="#fecb00" stroke-width="4" stroke-linecap="round" opacity="0.7"/>
+  <line x1="435" y1="195" x2="446" y2="206" stroke="#fecb00" stroke-width="4" stroke-linecap="round" opacity="0.7"/>
+  <line x1="435" y1="125" x2="446" y2="114" stroke="#fecb00" stroke-width="4" stroke-linecap="round" opacity="0.7"/>
+  <line x1="365" y1="195" x2="354" y2="206" stroke="#fecb00" stroke-width="4" stroke-linecap="round" opacity="0.7"/>
+  <!-- Text -->
+  <text x="400" y="280" text-anchor="middle" font-family="Arial, sans-serif" font-size="28" font-weight="bold" fill="white">Piquenique Anual</text>
+  <text x="400" y="315" text-anchor="middle" font-family="Arial, sans-serif" font-size="20" fill="white" opacity="0.7">de Verão</text>
+  <text x="400" y="360" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" fill="#fecb00">ARPILF — Agosto 2025</text>
+</svg>
