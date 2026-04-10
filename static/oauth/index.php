@@ -65,28 +65,43 @@ if (preg_match('#/oauth/callback#', $request_uri)) {
     }
 
     $token = $data['access_token'];
-    $provider = 'github';
-    $json = json_encode(['token' => $token, 'provider' => $provider]);
 
-    echo '<!DOCTYPE html>
+    // Build the message exactly as Decap CMS expects
+    $content = json_encode([
+        'token' => $token,
+        'provider' => 'github'
+    ]);
+
+    echo <<<HTML
+<!DOCTYPE html>
 <html>
 <head><title>Autenticação</title></head>
 <body>
+<p>A autenticar...</p>
 <script>
 (function() {
-  var data = ' . $json . ';
-  var msg = "authorization:github:success:" + JSON.stringify(data);
+  var token = "{$token}";
+  var provider = "github";
 
+  // Decap CMS expects this exact message format
+  var message = "authorization:" + provider + ":success:" + JSON.stringify({token: token, provider: provider});
+
+  console.log("Sending message to opener:", message);
+
+  // Try sending to opener
   if (window.opener) {
-    window.opener.postMessage(msg, "*");
-    setTimeout(function() { window.close(); }, 1000);
+    // Send to any origin since we don't know the exact one
+    window.opener.postMessage(message, "*");
+    console.log("Message sent to opener");
   } else {
-    document.body.innerText = "Autenticação concluída. Pode fechar esta janela.";
+    console.error("No window.opener found");
+    document.body.innerHTML = "<p>Erro: janela principal não encontrada. Feche esta janela e tente novamente.</p>";
   }
 })();
 </script>
 </body>
-</html>';
+</html>
+HTML;
     exit;
 }
 
