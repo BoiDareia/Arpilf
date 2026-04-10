@@ -42,6 +42,11 @@ jobs:
           uploadArtifacts: true
           configPath: ./lighthouserc.json
 
+      - name: Inject OAuth credentials
+        run: |
+          sed -i "s/YOUR_CLIENT_ID/${{ secrets.OAUTH_CLIENT_ID }}/" ./public/oauth/index.php
+          sed -i "s/YOUR_CLIENT_SECRET/${{ secrets.OAUTH_CLIENT_SECRET }}/" ./public/oauth/index.php
+
       - name: Deploy via FTP
         if: success()
         env:
