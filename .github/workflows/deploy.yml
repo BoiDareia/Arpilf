@@ -48,10 +48,13 @@ jobs:
           sudo apt-get update -qq && sudo apt-get install -y -qq lftp
           lftp -e "
             set sftp:auto-confirm yes;
-            set net:max-retries 2;
+            set ssl:verify-certificate no;
+            set net:max-retries 3;
             set net:reconnect-interval-base 5;
+            set net:timeout 30;
+            debug 3;
+            open -u ${{ secrets.SFTP_USER }},${{ secrets.SFTP_PASSWORD }} sftp://${{ secrets.SFTP_HOST }};
             mirror --reverse --delete --verbose --parallel=4 \
               ./public/ ${{ secrets.SFTP_PATH }};
             bye
-          " -u "${{ secrets.SFTP_USER }}","${{ secrets.SFTP_PASSWORD }}" \
-            sftp://${{ secrets.SFTP_HOST }}
+          "
