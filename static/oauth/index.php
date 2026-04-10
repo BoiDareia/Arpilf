@@ -2,15 +2,9 @@
 /**
  * GitHub OAuth provider for Decap CMS
  * Self-contained — no dependencies required.
- *
- * Setup:
- * 1. Create a GitHub OAuth App (Settings > Developer settings > OAuth Apps)
- *    - Callback URL: https://arpilf.pt/oauth/callback/
- * 2. Set GITHUB_CLIENT_ID and GITHUB_CLIENT_SECRET below
- * 3. Upload this file to public_html/oauth/index.php on cPanel
  */
 
-// ── Configuration ──────────────────────────────────────────────
+// ── Configuration (replaced by CI/CD pipeline) ────────────────
 $client_id     = 'YOUR_CLIENT_ID';
 $client_secret = 'YOUR_CLIENT_SECRET';
 $scope         = 'repo,user';
@@ -60,48 +54,39 @@ if (preg_match('#/oauth/callback#', $request_uri)) {
     ]);
 
     $response = curl_exec($ch);
-    $http_code = curl_getinfo($ch, CURLINFO_HTTP_CODE);
     curl_close($ch);
-
-    if ($http_code !== 200) {
-        http_response_code(500);
-        die('Failed to get access token');
-    }
 
     $data = json_decode($response, true);
 
-    if (isset($data['error'])) {
+    if (!$data || isset($data['error'])) {
+        $err = isset($data['error_description']) ? $data['error_description'] : 'Unknown error';
         http_response_code(400);
-        die('OAuth error: ' . htmlspecialchars($data['error_description']));
+        die('OAuth error: ' . htmlspecialchars($err));
     }
 
-    $token    = $data['access_token'];
+    $token = $data['access_token'];
     $provider = 'github';
+    $json = json_encode(['token' => $token, 'provider' => $provider]);
 
-    // Return the token to Decap CMS via postMessage
-    $json_message = json_encode(['token' => $token, 'provider' => $provider]);
-    ?>
-    <!DOCTYPE html>
-    <html>
-    <head><title>Autenticação</title></head>
-    <body>
-      <script>
-        (function() {
-          function receiveMessage(e) {
-            console.log("receiveMessage", e);
-            window.opener.postMessage(
-              "authorization:github:success:<?php echo $json_message; ?>",
-              e.origin
-            );
-            window.removeEventListener("message", receiveMessage, false);
-          }
-          window.addEventListener("message", receiveMessage, false);
-          window.opener.postMessage("authorizing:github", "*");
-        })();
-      </script>
-    </body>
-    </html>
-    <?php
+    echo '<!DOCTYPE html>
+<html>
+<head><title>Autenticação</title></head>
+<body>
+<script>
+(function() {
+  var data = ' . $json . ';
+  var msg = "authorization:github:success:" + JSON.stringify(data);
+
+  if (window.opener) {
+    window.opener.postMessage(msg, "*");
+    setTimeout(function() { window.close(); }, 1000);
+  } else {
+    document.body.innerText = "Autenticação concluída. Pode fechar esta janela.";
+  }
+})();
+</script>
+</body>
+</html>';
     exit;
 }
 
