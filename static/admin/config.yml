@@ -69,7 +69,7 @@ collections:
                 fields:
                   - { label: "Título", name: "titulo", widget: "string" }
                   - {
-                      label: "Ficheiro (PDF)",
+                      label: "Ficheiro",
                       name: "ficheiro",
                       widget: "file",
                       media_folder: "/static/documentos",
@@ -100,7 +100,7 @@ collections:
               - { label: "Título", name: "titulo", widget: "string" }
               - { label: "Descrição", name: "descricao", widget: "text" }
               - {
-                  label: "Ficheiro (PDF)",
+                  label: "Ficheiro",
                   name: "ficheiro",
                   widget: "file",
                   media_folder: "/static/documentos/projectos",
