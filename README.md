@@ -1,156 +1,244 @@
-# ARPILF — Website
+<div align="center">
 
-Website da ARPILF — Associação de Reformados, Pensionistas e Idosos.
+# 🏠 ARPILF — Website
 
-Site estático gerado com [Hugo](https://gohugo.io/) e estilizado com [Tailwind CSS](https://tailwindcss.com/) (CLI standalone). Deploy automatizado via GitHub Actions → SFTP para o cPanel da online.pt.
+**Associação de Reformados, Pensionistas e Idosos**
 
-## Pré-requisitos
+Site estático · [Hugo](https://gohugo.io/) · [Tailwind CSS](https://tailwindcss.com/) · Deploy automático via GitHub Actions
 
-- [Hugo](https://gohugo.io/installation/) (extended edition, versão mais recente)
-- [Tailwind CSS CLI standalone](https://github.com/tailwindlabs/tailwindcss/releases) — binário único, sem necessidade de Node.js
-- [Git](https://git-scm.com/)
-- (Opcional) [Node.js](https://nodejs.org/) — apenas para executar testes JavaScript localmente
-- (Opcional) [PHP 8+](https://www.php.net/) — apenas para testar o formulário de contacto localmente
-- (Opcional) [Python 3.10+](https://www.python.org/) + pytest + Hypothesis — para testes de build
+[![Build & Deploy](https://github.com/BoiDareia/Arpilf/actions/workflows/deploy.yml/badge.svg)](https://github.com/BoiDareia/Arpilf/actions/workflows/deploy.yml)
 
-## Setup Local
+[🌐 Ver o site](https://arpilf.pt) · [📝 Painel CMS](https://arpilf.pt/admin/) · [📖 Documentação](docs/)
+
+</div>
+
+---
+
+## ⚡ Visão Geral
+
+|               |                                                       |
+| ------------- | ----------------------------------------------------- |
+| **Framework** | Hugo (extended) — gerador de sites estáticos          |
+| **Estilos**   | Tailwind CSS v4 (CLI standalone)                      |
+| **CMS**       | Decap CMS — painel web para edição de conteúdos       |
+| **Hosting**   | cPanel (online.pt) via FTP                            |
+| **CI/CD**     | GitHub Actions — build, validação, Lighthouse, deploy |
+| **Domínio**   | [arpilf.pt](https://arpilf.pt)                        |
+
+---
+
+## 📋 Pré-requisitos
+
+| Ferramenta                                                               | Obrigatório | Notas                                     |
+| ------------------------------------------------------------------------ | :---------: | ----------------------------------------- |
+| [Hugo](https://gohugo.io/installation/) (extended)                       |     ✅      | Versão mais recente                       |
+| [Tailwind CSS CLI](https://github.com/tailwindlabs/tailwindcss/releases) |     ✅      | Binário standalone, sem Node.js           |
+| [Git](https://git-scm.com/)                                              |     ✅      |                                           |
+| [Node.js](https://nodejs.org/)                                           |     ⬜      | Apenas para testes JavaScript             |
+| [PHP 8+](https://www.php.net/)                                           |     ⬜      | Apenas para testar formulário de contacto |
+| [Python 3.10+](https://www.python.org/)                                  |     ⬜      | Apenas para testes de build               |
+
+---
+
+## 🚀 Setup Local
 
 ### 1. Clonar o repositório
 
 ```bash
-git clone https://github.com/<org>/Arpilf.git
+git clone https://github.com/BoiDareia/Arpilf.git
 cd Arpilf
 ```
 
-### 2. Instalar o Tailwind CSS CLI standalone
+### 2. Instalar o Tailwind CSS CLI
 
-Descarregar o binário para a raiz do projeto `Arpilf/`:
+Descarregar o binário para a raiz do projeto:
+
+<details>
+<summary>🐧 Linux</summary>
 
 ```bash
-# Linux
 curl -sLO https://github.com/tailwindlabs/tailwindcss/releases/latest/download/tailwindcss-linux-x64
 chmod +x tailwindcss-linux-x64
 mv tailwindcss-linux-x64 tailwindcss
+```
 
-# macOS (Apple Silicon)
+</details>
+
+<details>
+<summary>🍎 macOS (Apple Silicon)</summary>
+
+```bash
 curl -sLO https://github.com/tailwindlabs/tailwindcss/releases/latest/download/tailwindcss-macos-arm64
 chmod +x tailwindcss-macos-arm64
 mv tailwindcss-macos-arm64 tailwindcss
+```
 
-# macOS (Intel)
+</details>
+
+<details>
+<summary>🍎 macOS (Intel)</summary>
+
+```bash
 curl -sLO https://github.com/tailwindlabs/tailwindcss/releases/latest/download/tailwindcss-macos-x64
 chmod +x tailwindcss-macos-x64
 mv tailwindcss-macos-x64 tailwindcss
 ```
 
-### 3. Compilar o CSS
+</details>
 
-Desenvolvimento (com watch — recompila automaticamente ao guardar):
+<details>
+<summary>🪟 Windows</summary>
+
+Descarregar `tailwindcss-windows-x64.exe` dos [releases](https://github.com/tailwindlabs/tailwindcss/releases) e renomear para `tailwindcss.exe` na raiz do projeto.
+
+</details>
+
+### 3. Compilar CSS + iniciar Hugo
 
 ```bash
+# Terminal 1 — Tailwind em modo watch
 ./tailwindcss -i assets/css/main.css -o static/css/style.css --watch
-```
 
-Produção (minificado):
-
-```bash
-./tailwindcss -i assets/css/main.css -o static/css/style.css --minify
-```
-
-### 4. Iniciar o servidor de desenvolvimento Hugo
-
-Numa janela de terminal separada:
-
-```bash
+# Terminal 2 — Hugo dev server
 hugo server
 ```
 
-O site fica disponível em `http://localhost:1313/`. O Hugo recarrega automaticamente ao detetar alterações.
+O site fica disponível em `http://localhost:1313/` com live reload.
 
-## Comandos de Build
+---
 
-| Comando                                                                 | Descrição                                    |
-| ----------------------------------------------------------------------- | -------------------------------------------- |
-| `hugo server`                                                           | Servidor de desenvolvimento com live reload  |
-| `hugo`                                                                  | Build de produção → gera `public/`           |
-| `hugo --minify`                                                         | Build de produção com HTML/CSS/JS minificado |
-| `./tailwindcss -i assets/css/main.css -o static/css/style.css --watch`  | Compilar Tailwind em modo watch              |
-| `./tailwindcss -i assets/css/main.css -o static/css/style.css --minify` | Compilar Tailwind minificado                 |
+## 🛠️ Comandos
 
-## Estrutura do Projeto
+| Comando                                                                 | Descrição                                   |
+| ----------------------------------------------------------------------- | ------------------------------------------- |
+| `hugo server`                                                           | Servidor de desenvolvimento com live reload |
+| `hugo --minify`                                                         | Build de produção → `public/`               |
+| `./tailwindcss -i assets/css/main.css -o static/css/style.css --watch`  | Tailwind em modo watch                      |
+| `./tailwindcss -i assets/css/main.css -o static/css/style.css --minify` | Tailwind minificado (produção)              |
+
+---
+
+## 📁 Estrutura do Projeto
 
 ```text
 Arpilf/
-├── hugo.toml                    # Configuração principal Hugo
-├── tailwind.config.js           # Configuração Tailwind CSS
-├── package.json                 # Dependências de teste (Vitest, fast-check)
-├── .github/workflows/
-│   └── deploy.yml               # Pipeline CI/CD (GitHub Actions)
-├── assets/
-│   └── css/main.css             # Diretivas Tailwind (input)
-├── content/                     # Conteúdo Markdown
-│   ├── _index.md                # Homepage
-│   ├── sobre/                   # Sobre Nós
-│   ├── servicos/                # Serviços
-│   ├── noticias/                # Artigos de notícias
-│   ├── documentos/              # Página de documentos
-│   ├── contactos/               # Contactos + obrigado/erro
-│   ├── donativos/               # Donativos
-│   └── protecao-dados/          # Política RGPD
-├── data/
-│   └── documentos.yaml          # Catálogo de documentos (metadados)
-├── layouts/                     # Templates Hugo
-│   ├── _default/                # Templates base (baseof, single, list)
-│   ├── partials/                # Partials (head, nav, footer, chatbot)
-│   ├── noticias/                # Templates de notícias
-│   ├── documentos/              # Template de documentos
-│   ├── contactos/               # Template de contactos
-│   ├── index.html               # Template da homepage
-│   └── 404.html                 # Página 404
-├── static/                      # Ficheiros estáticos (copiados tal qual)
-│   ├── css/style.css            # CSS compilado (gerado pelo Tailwind)
-│   ├── js/                      # JavaScript (main, chatbot, contact-form)
-│   ├── images/                  # Imagens (logo, notícias)
-│   ├── documentos/              # PDFs organizados por categoria
-│   ├── contact.php              # Handler PHP do formulário
-│   └── .htaccess                # Redirects, segurança, cache
-├── tests/                       # Testes
-│   ├── build/                   # Testes Python (pytest/Hypothesis)
-│   ├── js/                      # Testes JavaScript (Vitest/fast-check)
-│   └── php/                     # Testes PHP (PHPUnit/Eris)
-├── docs/                        # Documentação operacional
-└── public/                      # Output do build (não versionar)
+├── 📄 hugo.toml                     # Configuração Hugo
+├── 📄 tailwind.config.js            # Configuração Tailwind CSS
+├── 📄 lighthouserc.json             # Configuração Lighthouse CI
+│
+├── 📂 .github/workflows/
+│   └── deploy.yml                   # Pipeline CI/CD
+│
+├── 📂 assets/css/
+│   └── main.css                     # Tailwind directives (input)
+│
+├── 📂 content/                      # 📝 Conteúdo Markdown
+│   ├── _index.md                    #    Homepage
+│   ├── sobre/                       #    Sobre Nós
+│   ├── servicos/                    #    Serviços
+│   ├── noticias/                    #    Notícias (artigos)
+│   ├── documentos/                  #    Documentos
+│   ├── contactos/                   #    Contactos
+│   ├── donativos/                   #    Donativos
+│   ├── parceiros/                   #    Parceiros
+│   ├── projectos/                   #    Projectos
+│   └── protecao-dados/              #    Política RGPD
+│
+├── 📂 data/
+│   ├── documentos.yaml              # Catálogo de documentos (PDFs)
+│   └── projectos.yaml               # Lista de projectos
+│
+├── 📂 layouts/                      # 🎨 Templates Hugo
+│   ├── _default/                    #    Base (baseof, single, list)
+│   ├── partials/                    #    Partials (head, nav, footer)
+│   └── [secção]/                    #    Templates por secção
+│
+├── 📂 static/                       # 📦 Ficheiros estáticos
+│   ├── admin/                       #    Decap CMS (painel de gestão)
+│   ├── oauth/                       #    OAuth provider (autenticação)
+│   ├── css/style.css                #    CSS compilado
+│   ├── js/                          #    JavaScript
+│   ├── images/                      #    Imagens e favicons
+│   ├── documentos/                  #    PDFs por categoria
+│   ├── contact.php                  #    Handler do formulário
+│   └── .htaccess                    #    Redirects, CSP, cache
+│
+├── 📂 tests/                        # 🧪 Testes
+│   ├── build/                       #    Python (pytest/Hypothesis)
+│   ├── js/                          #    JavaScript (Vitest/fast-check)
+│   └── php/                         #    PHP (PHPUnit/Eris)
+│
+├── 📂 docs/                         # 📖 Documentação operacional
+└── 📂 public/                       # ⚙️ Output do build (não versionar)
 ```
 
-## Deploy
+---
 
-### Deploy Automático (CI/CD)
+## 📝 Gestão de Conteúdos (CMS)
 
-O deploy é feito automaticamente via GitHub Actions quando se faz push para o branch `main`. O pipeline:
+O website inclui um painel de gestão de conteúdos acessível em **[arpilf.pt/admin/](https://arpilf.pt/admin/)**, baseado no [Decap CMS](https://decapcms.org/).
 
-1. Faz checkout do repositório
-2. Instala o Hugo (extended edition)
-3. Descarrega o Tailwind CSS CLI standalone
-4. Compila o Tailwind CSS (minificado)
-5. Executa o build Hugo (`hugo --minify`)
-6. Valida o HTML gerado
-7. Executa Lighthouse CI (scores mínimos de 90)
-8. Faz deploy via SFTP (lftp) para o cPanel da online.pt
+### O que se pode fazer
 
-### GitHub Secrets Necessários
+| Secção         | Ações                                            |
+| -------------- | ------------------------------------------------ |
+| **Notícias**   | Criar, editar e apagar artigos de notícias       |
+| **Documentos** | Adicionar/remover PDFs organizados por categoria |
+| **Projectos**  | Gerir a lista de projectos da associação         |
+| **Páginas**    | Editar descrições das páginas principais         |
 
-Configurar em **Settings → Secrets and variables → Actions** no repositório GitHub:
+### Como funciona
 
-| Secret          | Descrição                                         |
-| --------------- | ------------------------------------------------- |
-| `SFTP_HOST`     | Hostname do servidor cPanel (ex: `ftp.arpilf.pt`) |
-| `SFTP_USER`     | Utilizador SFTP do cPanel                         |
-| `SFTP_PASSWORD` | Password SFTP do cPanel                           |
-| `SFTP_PATH`     | Caminho remoto no servidor (ex: `/public_html/`)  |
+```text
+Utilizador edita conteúdo no CMS (browser)
+  → Decap CMS faz commit no GitHub (branch main)
+  → GitHub Actions executa o pipeline automaticamente
+  → Site é reconstruído e publicado em poucos minutos
+```
+
+### Autenticação
+
+O CMS usa autenticação via GitHub com um OAuth provider self-hosted (PHP) alojado no próprio cPanel. As credenciais OAuth são injetadas automaticamente durante o deploy via GitHub Secrets.
+
+---
+
+## 🔄 CI/CD — Deploy Automático
+
+O deploy é acionado automaticamente a cada push para `main`.
+
+### Pipeline
+
+```text
+Push para main
+  → Checkout do código
+  → Instalar Hugo + Tailwind CSS CLI
+  → Compilar CSS (minificado)
+  → Build Hugo (minificado)
+  → Injetar credenciais OAuth no PHP
+  → Validar HTML
+  → Lighthouse CI (performance, acessibilidade, SEO)
+  → Deploy via FTP para o cPanel
+```
+
+> Se qualquer passo falhar, o deploy **não acontece** e o site mantém a versão anterior.
+
+### GitHub Secrets
+
+Configurar em **Settings → Secrets and variables → Actions**:
+
+| Secret                | Descrição                                  |
+| --------------------- | ------------------------------------------ |
+| `SFTP_HOST`           | Hostname do servidor (ex: `ftp.arpilf.pt`) |
+| `SFTP_USER`           | Utilizador FTP do cPanel                   |
+| `SFTP_PASSWORD`       | Password FTP do cPanel                     |
+| `SFTP_PATH`           | Caminho remoto (ex: `public_html/`)        |
+| `OAUTH_CLIENT_ID`     | Client ID da GitHub OAuth App              |
+| `OAUTH_CLIENT_SECRET` | Client Secret da GitHub OAuth App          |
 
 ### Deploy Manual (alternativa)
 
-Se necessário fazer deploy manual sem o pipeline:
+<details>
+<summary>Instruções para deploy manual</summary>
 
 ```bash
 # 1. Compilar Tailwind CSS
@@ -159,42 +247,66 @@ Se necessário fazer deploy manual sem o pipeline:
 # 2. Build Hugo
 hugo --minify
 
-# 3. Enviar ficheiros via SFTP/FTP
-# Copiar todo o conteúdo de public/ para public_html/ no cPanel
-# Pode usar FileZilla, lftp, ou o gestor de ficheiros do cPanel
-```
-
-Exemplo com `lftp`:
-
-```bash
+# 3. Upload via lftp
 lftp -e "
-  set sftp:auto-confirm yes;
+  set ssl:verify-certificate no;
+  set ftp:ssl-allow yes;
   mirror --reverse --delete --verbose --parallel=4 \
-    ./public/ /public_html/;
+    ./public/ public_html/;
   bye
-" -u UTILIZADOR,PASSWORD sftp://HOSTNAME
+" -u UTILIZADOR,PASSWORD ftp://HOSTNAME
 ```
 
-## Testes
+Ou copiar manualmente o conteúdo de `public/` para `public_html/` via FileZilla ou o gestor de ficheiros do cPanel.
+
+</details>
+
+---
+
+## 🧪 Testes
 
 ```bash
-# Testes JavaScript (chatbot, formulário)
+# JavaScript (chatbot, formulário)
 npm install
 npm run test:js
 
-# Testes Python (build Hugo, redirects)
+# Python (build Hugo, redirects)
 pip install pytest hypothesis beautifulsoup4 lxml pyyaml
 pytest tests/build/
 
-# Testes PHP (handler do formulário) — requer PHPUnit + Eris
+# PHP (handler do formulário)
 cd tests/php && phpunit
 ```
 
-## Documentação Adicional
+---
 
-Consultar a pasta `docs/` para guias operacionais:
+## 🔒 Segurança
 
-- `COMO-ADICIONAR-NOTICIAS.md` — Como publicar notícias
-- `COMO-ADICIONAR-DOCUMENTOS.md` — Como adicionar documentos PDF
-- `BACKUPS.md` — Estratégia de backups e recuperação
-- `CI-CD.md` — Detalhes do pipeline e troubleshooting
+O site implementa os seguintes cabeçalhos de segurança via `.htaccess`:
+
+- **HTTPS forçado** — redirect automático de HTTP para HTTPS
+- **HSTS** — Strict Transport Security com `includeSubDomains`
+- **CSP** — Content Security Policy restritiva com exceções para o CMS e Google Maps
+- **X-Content-Type-Options** — `nosniff`
+- **X-Frame-Options** — `SAMEORIGIN`
+
+As credenciais OAuth são injetadas durante o deploy e **nunca existem no código-fonte**.
+
+---
+
+## 📖 Documentação Adicional
+
+| Documento                                                         | Descrição                              |
+| ----------------------------------------------------------------- | -------------------------------------- |
+| [COMO-ADICIONAR-NOTICIAS.md](docs/COMO-ADICIONAR-NOTICIAS.md)     | Como publicar notícias                 |
+| [COMO-ADICIONAR-DOCUMENTOS.md](docs/COMO-ADICIONAR-DOCUMENTOS.md) | Como adicionar documentos PDF          |
+| [BACKUPS.md](docs/BACKUPS.md)                                     | Estratégia de backups e recuperação    |
+| [CI-CD.md](docs/CI-CD.md)                                         | Detalhes do pipeline e troubleshooting |
+
+---
+
+<div align="center">
+
+Feito com ❤️ para a comunidade de Laranjeiro
+
+</div>
