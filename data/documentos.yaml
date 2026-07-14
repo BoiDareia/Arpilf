@@ -2,6 +2,9 @@ categorias:
   - nome: "Relatórios Financeiros"
     slug: "relatorios-financeiros"
     documentos:
+      - titulo: "Publicação de Contas 2025"
+        ficheiro: "/documentos/relatorios-financeiros/Publicacao_contas_2025.pdf"
+        data: "2026-03-15"
       - titulo: "Publicação de Contas 2024"
         ficheiro: "/documentos/relatorios-financeiros/Publicacao_contas_2024.pdf"
         data: "2025-03-15"
