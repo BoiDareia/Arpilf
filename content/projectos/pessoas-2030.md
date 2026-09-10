@@ -20,3 +20,4 @@ Para aceder a este apoio, as pessoas e/ou famílias que se encontrem em situaç�
 ## Fichas de Operação
 
 - [Ficha de Operação — Distribuição Direta (PDF)](/documentos/projectos/Distribuicao_Direta.pdf)
+- [Ficha de Operação — Cartões Sociais (PDF)](/documentos/projectos/Cartoes_Sociais.pdf)
