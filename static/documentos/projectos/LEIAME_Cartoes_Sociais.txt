@@ -1,0 +1,19 @@
+FICHA DE OPERAÇÃO — CARTÕES SOCIAIS (placeholder)
+==================================================
+
+O ficheiro Cartoes_Sociais.pdf nesta pasta é um PLACEHOLDER temporário
+(uma página com "Documento brevemente disponível"). Serve apenas para
+que o link na página Pessoas 2030 (/projectos/pessoas-2030/) resolva
+sem erro 404 e não seja marcado como link partido na validação.
+
+Para publicar a ficha real, basta SUBSTITUIR o ficheiro, mantendo
+EXATAMENTE o mesmo nome:
+
+    static/documentos/projectos/Cartoes_Sociais.pdf
+
+Passos:
+  1. Substituir o PDF placeholder pelo PDF real (mesmo nome).
+  2. (Opcional) Comprimir se for grande, como foi feito com a ficha
+     da Distribuição Direta.
+  3. Apagar este ficheiro LEIAME.
+  4. git add, commit e push — o site publica automaticamente no merge.

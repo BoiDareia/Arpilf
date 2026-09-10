@@ -1,0 +1,129 @@
+{{ define "main" }}
+
+<!-- Hero -->
+<section class="bg-primary text-white">
+  <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-20">
+    <p class="inline-block bg-accent text-primary text-sm font-bold uppercase tracking-wide px-3 py-1 rounded-full mb-5">
+      Programa Pessoas 2030
+    </p>
+    <h1 class="text-4xl md:text-5xl font-extrabold leading-tight mb-4">{{ .Title }}</h1>
+    <p class="text-lg md:text-xl text-white/85 max-w-3xl leading-relaxed">{{ .Description }}</p>
+    <span class="block w-24 h-1.5 bg-accent rounded-full mt-8"></span>
+  </div>
+</section>
+
+<!-- Stats -->
+<section class="bg-white border-b border-gray-100">
+  <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-10 md:py-12">
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6">
+      {{ with .Params.beneficiarios_direta }}
+      <div class="text-center bg-secondary rounded-xl p-5 md:p-6 border border-gray-100">
+        <div class="text-4xl md:text-5xl font-extrabold text-primary">{{ . }}</div>
+        <div class="text-sm text-gray-600 mt-2 font-medium">beneficiários<br>distribuição direta</div>
+      </div>
+      {{ end }}
+      {{ with .Params.beneficiarios_indireta }}
+      <div class="text-center bg-secondary rounded-xl p-5 md:p-6 border border-gray-100">
+        <div class="text-4xl md:text-5xl font-extrabold text-primary">{{ . }}</div>
+        <div class="text-sm text-gray-600 mt-2 font-medium">beneficiários<br>distribuição indireta</div>
+      </div>
+      {{ end }}
+      {{ with .Params.financiamento_fse }}
+      <div class="text-center bg-secondary rounded-xl p-5 md:p-6 border border-gray-100">
+        <div class="text-4xl md:text-5xl font-extrabold text-accent">{{ . }}%</div>
+        <div class="text-sm text-gray-600 mt-2 font-medium">Fundo Social<br>Europeu Mais (FSE+)</div>
+      </div>
+      {{ end }}
+      {{ with .Params.financiamento_estado }}
+      <div class="text-center bg-secondary rounded-xl p-5 md:p-6 border border-gray-100">
+        <div class="text-4xl md:text-5xl font-extrabold text-accent">{{ . }}%</div>
+        <div class="text-sm text-gray-600 mt-2 font-medium">Estado<br>português</div>
+      </div>
+      {{ end }}
+    </div>
+  </div>
+</section>
+
+<!-- Intro content -->
+<section class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-16">
+  <div class="prose prose-lg max-w-none prose-headings:text-primary prose-strong:text-primary prose-p:text-gray-700 prose-p:leading-relaxed">
+    {{ .Content }}
+  </div>
+
+  <!-- Modalidades -->
+  <h2 class="text-2xl md:text-3xl font-bold text-primary mt-12 mb-6 flex items-center gap-3">
+    <span class="w-1.5 h-8 bg-accent rounded-full"></span>
+    Modalidades de apoio
+  </h2>
+  <p class="text-gray-600 mb-6 leading-relaxed">
+    O programa disponibiliza duas modalidades de apoio alimentar. Os destinatários finais apenas podem beneficiar de uma das modalidades.
+  </p>
+  <div class="grid md:grid-cols-2 gap-6">
+    <div class="bg-white rounded-xl p-6 border border-gray-200 shadow-sm hover:shadow-md transition-shadow duration-200">
+      <div class="flex items-center gap-3 mb-3">
+        <span class="flex items-center justify-center w-11 h-11 rounded-lg bg-primary/10 text-primary flex-shrink-0" aria-hidden="true">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"/></svg>
+        </span>
+        <h3 class="text-xl font-bold text-primary">Distribuição direta</h3>
+      </div>
+      <p class="text-gray-600 leading-relaxed">
+        Os agregados recebem mensalmente um cabaz com produtos secos, refrigerados e congelados.
+      </p>
+    </div>
+    <div class="bg-white rounded-xl p-6 border border-gray-200 shadow-sm hover:shadow-md transition-shadow duration-200">
+      <div class="flex items-center gap-3 mb-3">
+        <span class="flex items-center justify-center w-11 h-11 rounded-lg bg-primary/10 text-primary flex-shrink-0" aria-hidden="true">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z"/></svg>
+        </span>
+        <h3 class="text-xl font-bold text-primary">Distribuição indireta</h3>
+      </div>
+      <p class="text-gray-600 leading-relaxed">
+        É atribuído um cartão, com um plafom definido de acordo com o número de elementos do agregado familiar, destinado à aquisição de produtos alimentares em superfícies comerciais aderentes.
+      </p>
+    </div>
+  </div>
+
+  <!-- Medidas de acompanhamento -->
+  <h2 class="text-2xl md:text-3xl font-bold text-primary mt-12 mb-6 flex items-center gap-3">
+    <span class="w-1.5 h-8 bg-accent rounded-full"></span>
+    Medidas de acompanhamento
+  </h2>
+  <p class="text-gray-600 leading-relaxed">
+    Em complementaridade ao apoio alimentar, são desenvolvidas, junto dos beneficiários, medidas de acompanhamento com uma perspetiva de formação e capacitação das famílias, nomeadamente sobre estilos de vida saudáveis, seleção e utilização adequada dos alimentos, prevenção do desperdício, gestão do cabaz e do orçamento familiar.
+  </p>
+
+  <!-- SAAS call-out -->
+  <div class="mt-12 bg-primary rounded-2xl p-8 md:p-10 text-white">
+    <h2 class="text-2xl font-bold mb-3">Como aceder ao apoio</h2>
+    <p class="text-white/85 leading-relaxed max-w-3xl">
+      As pessoas e/ou famílias que se encontrem em situação de carência económica devem agendar atendimento no <strong class="text-accent">Serviço de Atendimento e Acompanhamento Social (SAAS)</strong> da sua área de residência.
+    </p>
+    <a href="{{ "contactos/" | relURL }}" class="inline-flex items-center gap-2 mt-6 bg-accent text-primary px-6 py-3 rounded-lg font-bold hover:bg-accent/90 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-accent focus:ring-offset-primary transition-colors duration-200">
+      Contactar a ARPILF
+      <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"/></svg>
+    </a>
+  </div>
+
+  <!-- Fichas de Operação -->
+  {{ with .Params.fichas }}
+  <h2 class="text-2xl md:text-3xl font-bold text-primary mt-14 mb-6 flex items-center gap-3">
+    <span class="w-1.5 h-8 bg-accent rounded-full"></span>
+    Fichas de Operação
+  </h2>
+  <div class="grid sm:grid-cols-2 gap-4">
+    {{ range . }}
+    <a href="{{ .ficheiro | relURL }}" download class="group flex items-center gap-4 bg-white p-5 rounded-xl border border-gray-200 shadow-sm hover:shadow-md hover:border-primary/40 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary transition-all duration-200" aria-label="Descarregar Ficha de Operação — {{ .nome }} (PDF)">
+      <span class="flex items-center justify-center w-12 h-12 rounded-lg bg-accent/20 text-primary flex-shrink-0 group-hover:bg-accent/40 transition-colors duration-200" aria-hidden="true">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
+      </span>
+      <span class="flex-1 min-w-0">
+        <span class="block text-xs font-semibold uppercase tracking-wide text-gray-400">Ficha de Operação</span>
+        <span class="block text-lg font-bold text-primary truncate">{{ .nome }}</span>
+        <span class="block text-sm text-gray-500">Descarregar PDF</span>
+      </span>
+    </a>
+    {{ end }}
+  </div>
+  {{ end }}
+</section>
+{{ end }}

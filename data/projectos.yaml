@@ -23,6 +23,6 @@ projectos:
     ficheiro: "/documentos/projectos/Snoezelen.pdf"
     descricao: "Projeto de estimulação sensorial para a comunidade"
 
-  - titulo: "Operação da Distribuição Direta"
-    ficheiro: "/documentos/projectos/Distribuicao_Direta.pdf"
-    descricao: "Distribuição Directa de Géneros Alimentares e Medidas de Acompanhamento"
+  - titulo: "Pessoas 2030 — Privação Material"
+    pagina: "/projectos/pessoas-2030/"
+    descricao: "Distribuição direta e indireta de géneros alimentares e medidas de acompanhamento"
