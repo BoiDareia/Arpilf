@@ -22,15 +22,14 @@
       "serviço",
       "servico",
       "centro de dia",
-      "apoio domiciliário",
-      "apoio domiciliario",
-      "lar",
+      "centro de convívio",
+      "centro de convivio",
+      "convívio",
+      "convivio",
       "cantina",
-      "erpi",
-      "sad",
       "resposta social"
     ],
-    "resposta": "A ARPILF oferece: Centro de Dia, Apoio Domiciliário (SAD), Estrutura Residencial (ERPI) e Cantina Social. Visite a nossa página de serviços para mais detalhes.",
+    "resposta": "A ARPILF oferece: Centro de Dia, Centro de Convívio e Cantina Social. Visite a nossa página de serviços para mais detalhes.",
     "link": "/servicos/",
     "sugestoes": ["Qual o horário?", "Como posso contactar?", "Onde ficam?"]
   },
@@ -60,7 +59,7 @@
       "falar",
       "morada"
     ],
-    "resposta": "Pode contactar a ARPILF pelo telefone 968 807 673 ou email arpilf@arpilf.pt. Visite a nossa página de contactos para mais informações.",
+    "resposta": "Pode contactar a ARPILF pelo telefone 969 832 401 ou email arpilf@arpilf.pt. Visite a nossa página de contactos para mais informações.",
     "link": "/contactos/",
     "sugestoes": ["Onde ficam?", "Quais são os serviços?"]
   },
@@ -114,7 +113,7 @@
   },
   "fallback": {
     "patterns": [],
-    "resposta": "Não consegui encontrar uma resposta para a sua pergunta. Por favor, contacte a ARPILF diretamente pelo telefone 968 807 673 ou email arpilf@arpilf.pt.",
+    "resposta": "Não consegui encontrar uma resposta para a sua pergunta. Por favor, contacte a ARPILF diretamente pelo telefone 969 832 401 ou email arpilf@arpilf.pt.",
     "link": "/contactos/",
     "sugestoes": [
       "Quais são os serviços?",

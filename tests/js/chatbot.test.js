@@ -163,9 +163,9 @@ describe('Property 14: Resposta de fallback do chatbot', () => {
         // Must return the fallback response
         expect(result.resposta).toBe(fallback.resposta);
 
-        // Fallback response must contain phone and email placeholders
-        expect(result.resposta).toContain('[phone_number]');
-        expect(result.resposta).toContain('[email]');
+        // Fallback response must contain contact info (phone and email)
+        expect(result.resposta).toContain('969 832 401');
+        expect(result.resposta).toContain('arpilf@arpilf.pt');
       }),
       { numRuns: 10 }
     );
