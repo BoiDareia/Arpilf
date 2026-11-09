@@ -31,10 +31,10 @@
 
   /**
    * Mensagem de erro genérica quando a base de conhecimento não carrega.
-   * Conforme design doc: "De momento não consigo ajudar. Contacte-nos pelo telefone [phone_number]"
+   * Conforme design doc: "De momento não consigo ajudar. Contacte-nos pelo telefone [...]"
    */
   var LOAD_ERROR_MESSAGE = {
-    resposta: 'De momento não consigo ajudar. Contacte-nos pelo telefone 968 807 673 ou email arpilf@arpilf.pt.',
+    resposta: 'De momento não consigo ajudar. Contacte-nos pelo telefone 969 832 401 ou email arpilf@arpilf.pt.',
     link: '/contactos/',
     sugestoes: []
   };
